@@ -26,17 +26,18 @@
             overflow-y: auto;
             box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
         }
-        .sidebar h2 {
-            margin-top: 0;
-            font-size: 1.8em;
-            font-weight: 700;
-            letter-spacing: 1px;
+        .sidebar .logo {
+            width: 100%;
+            max-width: 200px;
+            display: block;
+            margin: 0 0 20px 0;
         }
         .sidebar .tagline {
             font-style: italic;
             margin-bottom: 30px;
             color: #A8C7FA;
             font-size: 1em;
+            text-align: left;
         }
         .sidebar ul {
             list-style-type: none;
@@ -103,7 +104,7 @@
             background-color: white;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             text-align: center;
             transition: transform 0.3s ease;
         }
@@ -148,12 +149,19 @@
                 width: 100%;
                 padding: 30px 20px;
             }
+            .sidebar .tagline {
+                text-align: left;
+            }
+            .sidebar .logo {
+                max-width: 150px;
+                margin: 0 0 20px 0;
+            }
         }
     </style>
 </head>
 <body>
     <div class="sidebar">
-        <h2>Apptoryx</h2>
+        <img src="Logo-removebg-preview.png" alt="Apptoryx Logo" class="logo">
         <p class="tagline">App Story by X</p>
         <ul>
             <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
@@ -168,8 +176,7 @@
             <p>Crafting Innovative Web App Stories for Your Business Success</p>
         </div>
         <div class="content-section">
-            <p>At Apptoryx, we blend creativity with technology to develop web applications that tell your unique story. Inspired by leading tech firms, we focus on user-centric designs and robust functionality.</p>
-            <p>Discover how our expertise in HTML, CSS, JavaScript, and Node.js can transform your ideas into engaging digital experiences.</p>
+            <p>Where Creativity Meets Code, At Apptoryx, we blend imagination with technical precision to craft custom web applications that bring your vision to life. Whether you're a startup, small business, or growing enterprise, we build solutions that are fast, functional, and beautifully designed.</p>
         </div>
         <div class="why-choose-us">
             <div class="why-item">

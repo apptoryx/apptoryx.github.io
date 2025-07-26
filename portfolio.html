@@ -26,17 +26,18 @@
             overflow-y: auto;
             box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
         }
-        .sidebar h2 {
-            margin-top: 0;
-            font-size: 1.8em;
-            font-weight: 700;
-            letter-spacing: 1px;
+        .sidebar .logo {
+            width: 100%;
+            max-width: 200px;
+            display: block;
+            margin: 0 0 20px 0;
         }
         .sidebar .tagline {
             font-style: italic;
             margin-bottom: 30px;
             color: #A8C7FA;
             font-size: 1em;
+            text-align: left;
         }
         .sidebar ul {
             list-style-type: none;
@@ -99,7 +100,7 @@
             background-color: white;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             transition: transform 0.3s ease;
         }
         .portfolio-item:hover {
@@ -166,6 +167,13 @@
                 width: 100%;
                 padding: 30px 20px;
             }
+            .sidebar .tagline {
+                text-align: left;
+            }
+            .sidebar .logo {
+                max-width: 150px;
+                margin: 0 0 20px 0;
+            }
             .portfolio-grid {
                 grid-template-columns: 1fr;
             }
@@ -174,7 +182,7 @@
 </head>
 <body>
     <div class="sidebar">
-        <h2>Apptoryx</h2>
+        <img src="Logo-removebg-preview.png" alt="Apptoryx Logo" class="logo">
         <p class="tagline">App Story by X</p>
         <ul>
             <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
@@ -209,7 +217,7 @@
                 <div class="image-placeholder">Project Image</div>
                 <div class="info">
                     <h3>Collaboration Tool</h3>
-                    <p>Custom SharePoint site with enhanced features for teamproductivity.</p>
+                    <p>Custom SharePoint site with enhanced features for team productivity.</p>
                     <a href="#">View Details</a>
                 </div>
             </div>
