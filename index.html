@@ -25,6 +25,7 @@
             position: fixed;
             overflow-y: auto;
             box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            transition: left 0.3s ease;
         }
         .sidebar .logo {
             width: 100%;
@@ -69,6 +70,7 @@
             width: calc(100% - 250px);
             box-sizing: border-box;
             background-color: #F0F4F8;
+            transition: margin-left 0.3s ease;
         }
         .hero {
             text-align: center;
@@ -120,21 +122,6 @@
             font-size: 1.2em;
             color: #0A2540;
         }
-        .offer-section {
-            margin-top: 40px;
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            text-align: center;
-            max-width: 800px;
-            margin: 40px auto 0;
-        }
-        .offer-section h3 {
-            font-size: 1.5em;
-            color: #0A2540;
-            margin-bottom: 10px;
-        }
         .footer {
             margin-top: 60px;
             text-align: center;
@@ -149,32 +136,48 @@
         .footer a:hover {
             text-decoration: underline;
         }
+        .menu-toggle {
+            display: none;
+        }
+        .hamburger {
+            display: none;
+            font-size: 2em;
+            cursor: pointer;
+            color: #0A2540;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
         @media (max-width: 768px) {
-            body {
-                flex-direction: column;
+            .hamburger {
+                display: block;
             }
             .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-                padding: 20px;
+                left: -250px;
+                position: absolute;
+                z-index: 999;
             }
             .main-content {
                 margin-left: 0;
                 width: 100%;
-                padding: 30px 20px;
+                padding: 80px 20px 30px 20px;
             }
-            .sidebar .tagline {
-                text-align: left;
+            .menu-toggle:checked ~ .sidebar {
+                left: 0;
             }
-            .sidebar .logo {
-                max-width: 150px;
-                margin: 0 0 20px 0;
+            .menu-toggle:checked ~ .main-content {
+                margin-left: 250px;
+            }
+            body {
+                flex-direction: row;  /* Keep row to allow sidebar slide */
             }
         }
     </style>
 </head>
 <body>
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="hamburger">☰</label>
     <div class="sidebar">
         <img src="Logo-removebg-preview.png" alt="Apptoryx Logo" class="logo">
         <p class="tagline">App Story by X</p>
@@ -210,11 +213,6 @@
                 <h3>Client Satisfaction</h3>
                 <p>100% satisfaction guarantee.</p>
             </div>
-        </div>
-        <div class="offer-section">
-            <h3>Special Offers</h3>
-            <p>Get 20% off on your first web app project! Limited time offer.</p>
-            <p>Static Websites are below 350AED.</p>
         </div>
         <div class="footer">
             <a href="https://wa.me/+971526979817">Contact Us</a> | <a href="mailto:sara.businessenquiry@gmail.com">Email Us</a>
