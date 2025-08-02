@@ -12,7 +12,7 @@
             margin: 0;
             padding: 0;
             display: flex;
-            height: 100vh;
+            min-height: 100vh;
             background-color: #F0F4F8;
             color: #333;
         }
@@ -25,7 +25,8 @@
             position: fixed;
             overflow-y: auto;
             box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-            transition: left 0.3s ease;
+            transition: transform 0.3s ease;
+            z-index: 1000;
         }
         .sidebar .logo {
             width: 100%;
@@ -70,7 +71,7 @@
             width: calc(100% - 250px);
             box-sizing: border-box;
             background-color: #F0F4F8;
-            transition: margin-left 0.3s ease;
+            transition: margin-left 0.3s ease, width 0.3s ease;
         }
         .hero {
             text-align: center;
@@ -82,13 +83,13 @@
             to { opacity: 1; transform: translateY(0); }
         }
         .hero h1 {
-            font-size: 3em;
+            font-size: 2.5em;
             margin: 0;
             color: #0A2540;
             font-weight: 700;
         }
         .hero p {
-            font-size: 1.4em;
+            font-size: 1.2em;
             color: #666;
         }
         .contact-info {
@@ -191,37 +192,44 @@
             position: fixed;
             top: 20px;
             left: 20px;
-            z-index: 1000;
+            z-index: 1001;
         }
         @media (max-width: 768px) {
             .hamburger {
                 display: block;
             }
             .sidebar {
-                left: -250px;
-                position: absolute;
-                z-index: 999;
+                transform: translateX(-100%);
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                width: 250px;
             }
             .main-content {
                 margin-left: 0;
                 width: 100%;
-                padding: 80px 20px 30px 20px;
+                padding: 60px 20px 30px 20px;
             }
-            .menu-toggle:checked ~ .sidebar {
-                left: 0;
+            .menu-toggle:checked + .hamburger + .sidebar {
+                transform: translateX(0);
             }
             .menu-toggle:checked ~ .main-content {
                 margin-left: 250px;
+                width: calc(100% - 250px);
             }
-            body {
-                flex-direction: row;  /* Keep row to allow sidebar slide */
+            .hero h1 {
+                font-size: 2em;
+            }
+            .hero p {
+                font-size: 1em;
             }
         }
     </style>
 </head>
 <body>
     <input type="checkbox" id="menu-toggle" class="menu-toggle">
-    <label for="menu-toggle" class="hamburger">☰</label>
+    <label for="menu-toggle" class="hamburger"><i class="fas fa-bars"></i></label>
     <div class="sidebar">
         <img src="Logo-removebg-preview.png" alt="Apptoryx Logo" class="logo">
         <p class="tagline">App Story by X</p>
