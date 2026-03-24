@@ -1,236 +1,477 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apptoryx - Services</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            min-height: 100vh;
-            background-color: #F0F4F8;
-            color: #333;
-        }
-        .sidebar {
-            width: 250px;
-            background: linear-gradient(180deg, #0A2540 0%, #1E3A5F 100%);
-            color: white;
-            padding: 30px 20px;
-            height: 100%;
-            position: fixed;
-            overflow-y: auto;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            z-index: 1000;
-        }
-        .sidebar .logo {
-            width: 100%;
-            max-width: 200px;
-            display: block;
-            margin: 0 0 20px 0;
-        }
-        .sidebar .tagline {
-            font-style: italic;
-            margin-bottom: 30px;
-            color: #A8C7FA;
-            font-size: 1em;
-            text-align: left;
-        }
-        .sidebar ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .sidebar ul li {
-            margin: 15px 0;
-        }
-        .sidebar ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1em;
-            transition: color 0.3s ease;
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        .sidebar ul li a i {
-            margin-right: 10px;
-        }
-        .sidebar ul li a:hover {
-            color: #A8C7FA;
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-        .main-content {
-            margin-left: 250px;
-            padding: 60px 40px;
-            width: calc(100% - 250px);
-            box-sizing: border-box;
-            background-color: #F0F4F8;
-            transition: margin-left 0.3s ease, width 0.3s ease;
-        }
-        .hero {
-            text-align: center;
-            margin-bottom: 50px;
-            animation: fadeIn 1s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .hero h1 {
-            font-size: 3em;
-            margin: 0;
-            color: #0A2540;
-            font-weight: 700;
-        }
-        .hero p {
-            font-size: 1.4em;
-            color: #666;
-        }
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .service-item {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-        .service-item:hover {
-            transform: translateY(-5px);
-        }
-        .service-item i {
-            font-size: 3em;
-            color: #0A2540;
-            margin-bottom: 20px;
-        }
-        .service-item h3 {
-            font-size: 1.4em;
-            color: #0A2540;
-            margin-bottom: 10px;
-        }
-        .footer {
-            margin-top: 60px;
-            text-align: center;
-            font-size: 0.9em;
-            color: #666;
-        }
-        .footer a {
-            color: #0A2540;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .footer a:hover {
-            text-decoration: underline;
-        }
-        .menu-toggle {
-            display: none;
-        }
-        .hamburger {
-            display: none;
-            font-size: 2em;
-            cursor: pointer;
-            color: #0A2540;
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 1001;
-        }
-        @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
-            .sidebar {
-                transform: translateX(-100%);
-                position: fixed;
-                top: 0;
-                left: 0;
-                height: 100vh;
-                width: 250px;
-            }
-            .main-content {
-                margin-left: 0;
-                width: 100%;
-                padding: 60px 20px 30px 20px;
-            }
-            .menu-toggle:checked + .hamburger + .sidebar {
-                transform: translateX(0);
-            }
-            .menu-toggle:checked ~ .main-content {
-                margin-left: 250px;
-                width: calc(100% - 250px);
-            }
-            .hero h1 {
-                font-size: 2em;
-            }
-            .hero p {
-                font-size: 1em;
-            }
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apptoryx - Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg: #e9edf2;
+      --card: #f7f7f8;
+      --text: #121212;
+      --muted: #7f8795;
+      --primary: #6e7cff;
+      --primary-dark: #5968f1;
+      --soft-pink: #f5d5f2;
+      --soft-blue: #d8f1f9;
+      --soft-mint: #dff7ec;
+      --shadow: 0 25px 60px rgba(39, 52, 89, 0.12);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top left, #f5f7fa 0%, var(--bg) 45%, #dde3ea 100%);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(60px);
+      opacity: 0.45;
+      z-index: 0;
+    }
+    body::before {
+      width: 260px;
+      height: 260px;
+      top: 80px;
+      left: -50px;
+      background: rgba(177, 201, 255, 0.55);
+    }
+    body::after {
+      width: 300px;
+      height: 300px;
+      right: -90px;
+      bottom: 20px;
+      background: rgba(244, 195, 240, 0.45);
+    }
+    .page-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 1240px;
+      margin: 38px auto;
+      padding: 0 18px;
+    }
+    .shell {
+      background: linear-gradient(180deg, rgba(255,255,255,0.86) 0%, rgba(247,247,248,0.96) 100%);
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      padding: 28px 38px 38px;
+      position: relative;
+      overflow: hidden;
+    }
+    .shell::before {
+      content: "";
+      position: absolute;
+      right: -40px;
+      top: -40px;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(255,255,255,0.9), rgba(255,255,255,0));
+      pointer-events: none;
+    }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      position: relative;
+      z-index: 3;
+    }
+    .brand img { height: 42px; display:block; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #979dab;
+      font-size: 0.96rem;
+      font-weight: 500;
+      transition: 0.25s ease;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+    .nav-cta, .primary-btn, .secondary-btn {
+      text-decoration: none;
+      border-radius: 16px;
+      font-weight: 700;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .nav-cta {
+      min-width: 142px;
+      padding: 16px 24px;
+      background: #0d0d0f;
+      color: #fff;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
+    }
+    .menu-btn {
+      display: none;
+      width: 48px;
+      height: 48px;
+      border: none;
+      border-radius: 14px;
+      background: #fff;
+      color: var(--text);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.02fr 1fr;
+      align-items: center;
+      gap: 22px;
+      padding: 30px 0 10px;
+    }
+    .hero-copy { padding: 24px 10px 20px 18px; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: #f1e1fb;
+      color: #8d7de5;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      font-weight: 800;
+      margin-bottom: 22px;
+    }
+    .hero-copy h1 {
+      margin: 0 0 16px;
+      font-size: clamp(2.4rem, 5.6vw, 4.6rem);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+      max-width: 560px;
+    }
+    .hero-copy p {
+      margin: 0 0 28px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      max-width: 470px;
+    }
+    .hero-actions { display:flex; gap:14px; flex-wrap:wrap; }
+    .primary-btn {
+      background: linear-gradient(180deg, #7c8afc 0%, var(--primary) 100%);
+      color: white;
+      padding: 16px 26px;
+      box-shadow: 0 16px 28px rgba(110, 124, 255, 0.28);
+    }
+    .secondary-btn {
+      background: rgba(255,255,255,0.82);
+      color: #3a4355;
+      padding: 16px 24px;
+      border: 1px solid rgba(0,0,0,0.05);
+      box-shadow: 0 10px 24px rgba(40, 52, 75, 0.08);
+    }
+    .hero-visual {
+      min-height: 430px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+    }
+    .service-scene {
+      position: relative;
+      width: 500px;
+      height: 380px;
+      animation: floatScene 6s ease-in-out infinite;
+      filter: drop-shadow(0 34px 40px rgba(60,77,111,.14));
+    }
+    @keyframes floatScene {
+      0%,100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    .scene-base {
+      position:absolute;
+      inset:auto 90px 30px 90px;
+      height:140px;
+      background: linear-gradient(180deg,#f6d796,#efbb59);
+      transform: skewX(-24deg);
+      border-radius: 14px;
+    }
+    .cube, .panel, .bubble {
+      position:absolute;
+      border-radius: 24px;
+    }
+    .cube.one {
+      left: 110px; bottom: 130px; width: 120px; height: 120px;
+      background: linear-gradient(145deg,#a4b7ff,#6f84ff);
+      box-shadow: 18px 18px 0 rgba(201,211,255,.8);
+      transform: rotate(-8deg);
+    }
+    .cube.two {
+      left: 255px; bottom: 100px; width: 150px; height: 150px;
+      background: linear-gradient(145deg,#ffd4e9,#f1b6d6);
+      box-shadow: 22px 22px 0 rgba(255,233,244,.85);
+      transform: rotate(8deg);
+    }
+    .panel.one {
+      left: 88px; top: 42px; width: 160px; height: 90px;
+      background: linear-gradient(180deg,#ffffff,#edf2fb);
+      box-shadow: 0 18px 30px rgba(57,73,112,.12);
+      transform: rotate(-10deg);
+    }
+    .panel.one::before,
+    .panel.one::after,
+    .panel.two::before,
+    .panel.three::before {
+      content:""; position:absolute; border-radius:999px;
+    }
+    .panel.one::before { left:18px; top:20px; width:74px; height:12px; background:#d8dff9; }
+    .panel.one::after { left:18px; top:42px; width:110px; height:10px; background:#ecb9d7; }
+    .panel.two {
+      right: 64px; top: 70px; width: 132px; height: 132px;
+      border-radius: 34px;
+      background: linear-gradient(180deg,#ffffff,#eff7fa);
+      box-shadow: 0 18px 30px rgba(57,73,112,.12);
+      transform: rotate(8deg);
+    }
+    .panel.two::before { inset:20px; border-radius:24px; background: linear-gradient(145deg,#d7f0f8,#bae9dc); }
+    .panel.three {
+      left: 210px; top: 8px; width: 104px; height: 72px;
+      background: linear-gradient(180deg,#ffffff,#eef3ff);
+      box-shadow: 0 18px 30px rgba(57,73,112,.10);
+      transform: rotate(6deg);
+    }
+    .panel.three::before { left:14px; top:14px; width:56px; height:10px; background:#9eb1ff; }
+    .bubble.one { width: 58px; height: 58px; right: 88px; bottom: 64px; background: radial-gradient(circle at 35% 30%, #83afff 0%, #5d6ef7 72%, #4f5add 100%); }
+    .bubble.two { width: 22px; height: 22px; left: 74px; top: 112px; background: #ffc86f; }
+    .bubble.three { width: 18px; height: 18px; right: 126px; top: 38px; background: #f7a1c6; }
+    .section-title {
+      display:flex; align-items:end; justify-content:space-between; gap:16px; flex-wrap:wrap;
+      margin: 8px 0 24px;
+    }
+    .section-title h2 {
+      margin:0; font-size: clamp(1.8rem, 3vw, 2.5rem); letter-spacing:-0.04em;
+    }
+    .section-title p { margin:0; color:var(--muted); max-width:520px; line-height:1.7; }
+    .service-grid {
+      display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:22px; margin-top:20px;
+    }
+    .service-card {
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: 26px;
+      padding: 24px;
+      box-shadow: 0 16px 32px rgba(44,57,84,.08);
+      transition: transform .28s ease, box-shadow .28s ease;
+      position:relative;
+      overflow:hidden;
+    }
+    .service-card:hover { transform: translateY(-8px); box-shadow: 0 22px 38px rgba(44,57,84,.12); }
+    .service-card::before {
+      content:""; position:absolute; top:-34px; right:-34px; width:110px; height:110px; border-radius:50%; opacity:.6;
+      background: radial-gradient(circle, rgba(255,255,255,.9), rgba(255,255,255,0));
+    }
+    .icon-badge {
+      width:58px; height:58px; border-radius:20px; display:flex; align-items:center; justify-content:center;
+      font-size:1.2rem; margin-bottom:18px; box-shadow: inset 0 -3px 0 rgba(0,0,0,.04);
+    }
+    .icon-blue { background: linear-gradient(145deg,#dfe8ff,#b7c8ff); color:#5b70f6; }
+    .icon-pink { background: linear-gradient(145deg,#ffe2ef,#f5bfd7); color:#dd6b9d; }
+    .icon-mint { background: linear-gradient(145deg,#e4fbef,#c0f0d8); color:#39a673; }
+    .icon-gold { background: linear-gradient(145deg,#ffefcb,#ffd98f); color:#d49b2d; }
+    .icon-sky { background: linear-gradient(145deg,#ddf3fb,#bae5f7); color:#3e9fc9; }
+    .service-card h3 { margin:0 0 10px; font-size:1.24rem; letter-spacing:-0.03em; }
+    .service-card p { margin:0 0 16px; color:var(--muted); line-height:1.7; }
+    .service-card ul { margin:0; padding-left:18px; color:#4a5364; line-height:1.7; }
+    .cta-strip {
+      margin-top: 28px;
+      display:grid; grid-template-columns: 1.1fr .9fr; gap:22px;
+    }
+    .cta-box, .mini-box {
+      background: rgba(255,255,255,0.72);
+      border-radius: 26px;
+      padding: 24px;
+      box-shadow: 0 16px 32px rgba(44,57,84,.08);
+    }
+    .cta-box h3, .mini-box h3 { margin:0 0 10px; font-size:1.4rem; letter-spacing:-0.03em; }
+    .cta-box p, .mini-box p { margin:0 0 18px; color:var(--muted); line-height:1.7; }
+    @media (max-width: 1100px) {
+      .hero-grid, .cta-strip, .service-grid { grid-template-columns: 1fr; }
+      .hero-copy { padding-left:0; }
+    }
+    @media (max-width: 860px) {
+      .page-wrap { margin:16px auto; padding:0 12px; }
+      .shell { padding:20px 18px 26px; border-radius:22px; }
+      .menu-btn { display:inline-flex; align-items:center; justify-content:center; }
+      .nav-links, .nav-cta { display:none; }
+      .topbar.open .nav-links {
+        display:flex; position:absolute; top:calc(100% + 14px); left:0; right:0; flex-direction:column; gap:18px; align-items:flex-start;
+        background: rgba(255,255,255,.96); padding:20px; border-radius:20px; box-shadow: 0 16px 34px rgba(24,36,60,.12);
+      }
+      .topbar.open .nav-cta { display:inline-flex; position:absolute; top:calc(100% + 210px); left:20px; }
+      .hero-grid { padding-top:36px; }
+      .hero-copy { text-align:center; }
+      .hero-actions { justify-content:center; }
+      .service-scene { transform: scale(.86); transform-origin:center center; }
+    }
+    @media (max-width: 560px) {
+      .hero-copy h1 { font-size: clamp(2.2rem, 14vw, 3.2rem); }
+      .primary-btn, .secondary-btn { width:100%; }
+      .service-scene { transform: scale(.62); height:300px; }
+    }
+  </style>
 </head>
 <body>
-    <input type="checkbox" id="menu-toggle" class="menu-toggle">
-    <label for="menu-toggle" class="hamburger"><i class="fas fa-bars"></i></label>
-    <div class="sidebar">
-        <img src="Logo-removebg-preview.png" alt="Apptoryx Logo" class="logo">
-        <p class="tagline">App Story by X</p>
-        <ul>
-            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-            <li><a href="services.html"><i class="fas fa-cogs"></i> Services</a></li>
-            <li><a href="portfolio.html"><i class="fas fa-briefcase"></i> Portfolio</a></li>
-            <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
-        </ul>
-    </div>
-    <div class="main-content">
-        <div class="hero">
-            <h1>Our Services</h1>
-            <p>Innovative Solutions Tailored for Your Digital Needs</p>
+  <div class="page-wrap">
+    <section class="shell">
+      <header class="topbar" id="topbar">
+        <a href="index.html" class="brand"><img src="Logo-removebg-preview.png" alt="Apptoryx logo"></a>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html" class="active">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <a href="contact.html" class="nav-cta">Get Started</a>
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+      </header>
+
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">OUR SERVICES</div>
+          <h1>Solutions Designed Around Your Work.</h1>
+          <p>
+            Apptoryx builds clean digital systems that look modern, work fast, and make day-to-day business easier.
+            From websites to dashboards and workflow automation, every service is made to solve a real business problem.
+          </p>
+          <div class="hero-actions">
+            <a href="contact.html" class="primary-btn">Start Your Project</a>
+            <a href="portfolio.html" class="secondary-btn">See Our Work</a>
+          </div>
         </div>
-        <div class="services-grid">
-            <div class="service-item">
-                <i class="fas fa-code"></i>
-                <h3>Basic Static Websites</h3>
-                <p>Clean, responsive landing pages that captivate your audience.</p>
-            </div>
-            <div class="service-item">
-                <i class="fas fa-server"></i>
-                <h3>Dynamic Web Apps with Node.js</h3>
-                <p>Interactive apps with robust backend functionality.</p>
-            </div>
-            <div class="service-item">
-                <i class="fas fa-chart-bar"></i>
-                <h3>Power BI Dashboards</h3>
-                <p>Insightful data visualizations embedded in your apps.</p>
-            </div>
-            <div class="service-item">
-                <i class="fas fa-share-alt"></i>
-                <h3>SharePoint Customizations</h3>
-                <p>Enhanced collaboration tools for your team.</p>
-            </div>
-            <div class="service-item">
-                <i class="fas fa-plug"></i>
-                <h3>API Integrations</h3>
-                <p>Seamless connections to expand your app's capabilities.</p>
-            </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="service-scene">
+            <div class="scene-base"></div>
+            <div class="cube one"></div>
+            <div class="cube two"></div>
+            <div class="panel one"></div>
+            <div class="panel two"></div>
+            <div class="panel three"></div>
+            <div class="bubble one"></div>
+            <div class="bubble two"></div>
+            <div class="bubble three"></div>
+          </div>
         </div>
-        <div class="footer">
-            <a href="https://wa.me/+971526979817">Contact Us</a> | <a href="mailto:sara.businessenquiry@gmail.com">Email Us</a>
+      </div>
+
+      <div class="section-title">
+        <h2>What we can build for you</h2>
+        <p>Same premium style as your homepage, but with stronger service presentation so visitors understand your real business value immediately.</p>
+      </div>
+
+      <div class="service-grid">
+        <article class="service-card">
+          <div class="icon-badge icon-blue"><i class="fas fa-laptop-code"></i></div>
+          <h3>Business Websites</h3>
+          <p>Modern landing pages and company websites with premium UI, fast loading, and mobile-friendly design.</p>
+          <ul>
+            <li>Static and responsive websites</li>
+            <li>Modern business homepage design</li>
+            <li>SEO-friendly structure</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <div class="icon-badge icon-pink"><i class="fas fa-layer-group"></i></div>
+          <h3>Custom Web Apps</h3>
+          <p>Internal systems, project tools, dashboards, portals, and data-driven applications tailored to your workflow.</p>
+          <ul>
+            <li>Node.js based app solutions</li>
+            <li>Role-based interfaces</li>
+            <li>Business process digitisation</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <div class="icon-badge icon-mint"><i class="fas fa-chart-line"></i></div>
+          <h3>Power BI Dashboards</h3>
+          <p>Interactive visual reporting for planning, productivity, commercial tracking, and management reporting.</p>
+          <ul>
+            <li>Real-time reports</li>
+            <li>KPI and progress tracking</li>
+            <li>Management-friendly layouts</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <div class="icon-badge icon-gold"><i class="fas fa-share-alt"></i></div>
+          <h3>SharePoint Solutions</h3>
+          <p>Smart forms, document control, workflow pages, and structured information portals for teams.</p>
+          <ul>
+            <li>Custom SharePoint pages</li>
+            <li>File and process workflows</li>
+            <li>Internal collaboration tools</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <div class="icon-badge icon-sky"><i class="fas fa-plug"></i></div>
+          <h3>API Integrations</h3>
+          <p>Connect your website or app with external platforms and automate data flow between systems.</p>
+          <ul>
+            <li>Third-party API connections</li>
+            <li>Custom integrations</li>
+            <li>Workflow automation support</li>
+          </ul>
+        </article>
+
+        <article class="service-card">
+          <div class="icon-badge icon-blue"><i class="fas fa-wand-magic-sparkles"></i></div>
+          <h3>UI Refresh & Upgrades</h3>
+          <p>Upgrade old interfaces into clean, premium, animated experiences without making them heavy or confusing.</p>
+          <ul>
+            <li>Modern redesigns</li>
+            <li>Premium animations</li>
+            <li>Mobile and UX improvements</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="cta-strip">
+        <div class="cta-box">
+          <h3>Need a custom combination?</h3>
+          <p>Most projects need a mix of website design, dashboarding, automation, and integrations. We can package everything into one clean solution for your business.</p>
+          <a href="https://wa.me/+971526979817" class="primary-btn">Discuss on WhatsApp</a>
         </div>
-    </div>
+        <div class="mini-box">
+          <h3>Quick start option</h3>
+          <p>Need something simple first? We also provide starter business websites that can later expand into full web apps and dashboards.</p>
+          <a href="contact.html" class="secondary-btn">Request Quote</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const topbar = document.getElementById('topbar');
+    menuBtn.addEventListener('click', function () {
+      topbar.classList.toggle('open');
+    });
+  </script>
 </body>
 </html>

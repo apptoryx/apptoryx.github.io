@@ -1,270 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apptoryx - Contact</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            min-height: 100vh;
-            background-color: #F0F4F8;
-            color: #333;
-        }
-        .sidebar {
-            width: 250px;
-            background: linear-gradient(180deg, #0A2540 0%, #1E3A5F 100%);
-            color: white;
-            padding: 30px 20px;
-            height: 100%;
-            position: fixed;
-            overflow-y: auto;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            z-index: 1000;
-        }
-        .sidebar .logo {
-            width: 100%;
-            max-width: 200px;
-            display: block;
-            margin: 0 0 20px 0;
-        }
-        .sidebar .tagline {
-            font-style: italic;
-            margin-bottom: 30px;
-            color: #A8C7FA;
-            font-size: 1em;
-            text-align: left;
-        }
-        .sidebar ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .sidebar ul li {
-            margin: 15px 0;
-        }
-        .sidebar ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1em;
-            transition: color 0.3s ease;
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        .sidebar ul li a i {
-            margin-right: 10px;
-        }
-        .sidebar ul li a:hover {
-            color: #A8C7FA;
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-        .main-content {
-            margin-left: 250px;
-            padding: 60px 40px;
-            width: calc(100% - 250px);
-            box-sizing: border-box;
-            background-color: #F0F4F8;
-            transition: margin-left 0.3s ease, width 0.3s ease;
-        }
-        .hero {
-            text-align: center;
-            margin-bottom: 50px;
-            animation: fadeIn 1s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .hero h1 {
-            font-size: 2.5em;
-            margin: 0;
-            color: #0A2540;
-            font-weight: 700;
-        }
-        .hero p {
-            font-size: 1.2em;
-            color: #666;
-        }
-        .contact-info {
-            max-width: 600px;
-            margin: 0 auto 40px;
-            text-align: center;
-        }
-        .contact-info p {
-            margin: 10px 0;
-            font-size: 1.1em;
-        }
-        .contact-info a {
-            color: #0A2540;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-        form {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-        form label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: #0A2540;
-        }
-        form input, form textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-            transition: border-color 0.3s ease;
-        }
-        form input:focus, form textarea:focus {
-            border-color: #0A2540;
-            outline: none;
-        }
-        form button {
-            width: 100%;
-            padding: 12px;
-            background-color: #0A2540;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1.1em;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-        form button:hover {
-            background-color: #1E3A5F;
-        }
-        .consultation {
-            text-align: center;
-            margin-top: 30px;
-        }
-        .consultation a {
-            background-color: #0A2540;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-        .consultation a:hover {
-            background-color: #1E3A5F;
-        }
-        .footer {
-            margin-top: 60px;
-            text-align: center;
-            font-size: 0.9em;
-            color: #666;
-        }
-        .footer a {
-            color: #0A2540;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .footer a:hover {
-            text-decoration: underline;
-        }
-        .menu-toggle {
-            display: none;
-        }
-        .hamburger {
-            display: none;
-            font-size: 2em;
-            cursor: pointer;
-            color: #0A2540;
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 1001;
-        }
-        @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
-            .sidebar {
-                transform: translateX(-100%);
-                position: fixed;
-                top: 0;
-                left: 0;
-                height: 100vh;
-                width: 250px;
-            }
-            .main-content {
-                margin-left: 0;
-                width: 100%;
-                padding: 60px 20px 30px 20px;
-            }
-            .menu-toggle:checked + .hamburger + .sidebar {
-                transform: translateX(0);
-            }
-            .menu-toggle:checked ~ .main-content {
-                margin-left: 250px;
-                width: calc(100% - 250px);
-            }
-            .hero h1 {
-                font-size: 2em;
-            }
-            .hero p {
-                font-size: 1em;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apptoryx - Contact</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg:#e9edf2; --text:#121212; --muted:#7f8795; --primary:#6e7cff; --shadow:0 25px 60px rgba(39,52,89,.12);
+    }
+    * { box-sizing:border-box; }
+    body {
+      margin:0; font-family:'Inter',sans-serif; color:var(--text); min-height:100vh; overflow-x:hidden;
+      background: radial-gradient(circle at top left, #f5f7fa 0%, var(--bg) 45%, #dde3ea 100%);
+    }
+    body::before, body::after { content:""; position:fixed; border-radius:50%; pointer-events:none; filter:blur(60px); opacity:.45; z-index:0; }
+    body::before { width:260px; height:260px; top:80px; left:-50px; background:rgba(177,201,255,.55); }
+    body::after { width:300px; height:300px; right:-90px; bottom:20px; background:rgba(244,195,240,.45); }
+    .page-wrap { position:relative; z-index:1; max-width:1240px; margin:38px auto; padding:0 18px; }
+    .shell {
+      background: linear-gradient(180deg, rgba(255,255,255,.86) 0%, rgba(247,247,248,.96) 100%);
+      border-radius:30px; box-shadow:var(--shadow); padding:28px 38px 38px; position:relative; overflow:hidden;
+    }
+    .shell::before { content:""; position:absolute; right:-40px; top:-40px; width:220px; height:220px; background: radial-gradient(circle, rgba(255,255,255,.9), rgba(255,255,255,0)); }
+    .topbar { display:flex; align-items:center; justify-content:space-between; gap:24px; position:relative; z-index:3; }
+    .brand img { height:42px; display:block; }
+    .nav-links { display:flex; align-items:center; gap:36px; list-style:none; padding:0; margin:0; }
+    .nav-links a { text-decoration:none; color:#979dab; font-size:.96rem; font-weight:500; transition:.25s ease; }
+    .nav-links a:hover, .nav-links a.active { color:var(--text); }
+    .nav-cta, .primary-btn, .secondary-btn {
+      text-decoration:none; border-radius:16px; font-weight:700; transition:transform .25s ease, box-shadow .25s ease; display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    }
+    .nav-cta { min-width:142px; padding:16px 24px; background:#0d0d0f; color:#fff; box-shadow:0 8px 18px rgba(0,0,0,.14); }
+    .primary-btn { background: linear-gradient(180deg, #7c8afc 0%, var(--primary) 100%); color:#fff; padding:16px 26px; box-shadow:0 16px 28px rgba(110,124,255,.28); border:none; cursor:pointer; }
+    .secondary-btn { background: rgba(255,255,255,.82); color:#3a4355; padding:16px 24px; border:1px solid rgba(0,0,0,.05); box-shadow:0 10px 24px rgba(40,52,75,.08); }
+    .nav-cta:hover, .primary-btn:hover, .secondary-btn:hover { transform: translateY(-2px); }
+    .menu-btn { display:none; width:48px; height:48px; border:none; border-radius:14px; background:#fff; color:var(--text); box-shadow:0 8px 20px rgba(0,0,0,.08); cursor:pointer; font-size:1rem; }
+    .hero-grid { display:grid; grid-template-columns:1.02fr 1fr; align-items:center; gap:22px; padding:30px 0 10px; }
+    .eyebrow { display:inline-flex; padding:8px 16px; border-radius:999px; background:#f1e1fb; color:#8d7de5; font-size:.72rem; letter-spacing:.08em; font-weight:800; margin-bottom:22px; }
+    .hero-copy h1 { margin:0 0 16px; font-size:clamp(2.4rem,5.6vw,4.6rem); line-height:.95; letter-spacing:-.06em; max-width:560px; }
+    .hero-copy p { margin:0 0 28px; color:var(--muted); font-size:1.05rem; line-height:1.75; max-width:490px; }
+    .hero-visual { min-height:430px; display:flex; align-items:center; justify-content:center; position:relative; }
+    .contact-scene { position:relative; width:520px; height:380px; animation: floatScene 6s ease-in-out infinite; filter: drop-shadow(0 34px 40px rgba(60,77,111,.14)); }
+    @keyframes floatScene { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-10px); } }
+    .base { position:absolute; left:110px; right:110px; bottom:40px; height:128px; background:linear-gradient(180deg,#f6d796,#efbb59); transform:skewX(-24deg); border-radius:18px; }
+    .card-main { position:absolute; left:150px; bottom:118px; width:220px; height:160px; border-radius:30px; background:linear-gradient(180deg,#fff,#edf2fb); box-shadow:0 22px 34px rgba(57,73,112,.12); }
+    .card-main::before { content:""; position:absolute; left:22px; right:22px; top:26px; height:18px; border-radius:999px; background:#d9e1fb; }
+    .card-main::after { content:""; position:absolute; left:22px; right:62px; top:58px; height:14px; border-radius:999px; background:#f2c5dc; box-shadow:0 34px 0 #d6f0f8, 0 68px 0 #e7ecf8; }
+    .mail-tab { position:absolute; left:196px; bottom:236px; width:132px; height:90px; background:linear-gradient(145deg,#9eb1ff,#7287ff); border-radius:24px; transform:rotate(-8deg); box-shadow:0 20px 30px rgba(93,110,247,.18); }
+    .mail-tab::before { content:""; position:absolute; inset:16px; border-radius:18px; background:linear-gradient(145deg,#ffe2ee 0%, #f3cce1 45%, #d2dcff 100%); }
+    .pill, .dot { position:absolute; border-radius:999px; }
+    .pill.one { right:106px; top:72px; width:124px; height:52px; background:linear-gradient(180deg,#fff,#eef6f9); box-shadow:0 18px 30px rgba(57,73,112,.12); }
+    .pill.one::before { content:""; position:absolute; left:18px; top:19px; width:52px; height:12px; border-radius:999px; background:#bae5f7; box-shadow:60px 0 0 #ffd1e6; }
+    .pill.two { right:132px; bottom:110px; width:96px; height:96px; background:linear-gradient(180deg,#ffffff,#edf2fb); box-shadow:0 18px 30px rgba(57,73,112,.12); }
+    .pill.two::before { content:""; position:absolute; inset:18px; border-radius:24px; background:linear-gradient(145deg,#e4fbef,#bae5f7); }
+    .dot.one { width:22px; height:22px; left:118px; top:78px; background:#ffc86f; }
+    .dot.two { width:18px; height:18px; right:118px; top:42px; background:#f7a1c6; }
+    .dot.three { width:54px; height:54px; right:88px; bottom:72px; background:radial-gradient(circle at 35% 30%, #83afff 0%, #5d6ef7 72%, #4f5add 100%); }
+    .contact-layout { display:grid; grid-template-columns: .95fr 1.05fr; gap:22px; margin-top:18px; }
+    .contact-card, .info-card {
+      background: rgba(255,255,255,.72); backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,.65); border-radius:26px; padding:26px; box-shadow:0 16px 32px rgba(44,57,84,.08);
+    }
+    .contact-card h2, .info-card h3 { margin:0 0 12px; letter-spacing:-.03em; }
+    .contact-card p, .info-card p { margin:0 0 18px; color:var(--muted); line-height:1.7; }
+    .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .field, .full { display:flex; flex-direction:column; gap:8px; }
+    .full { grid-column:1 / -1; }
+    label { font-size:.92rem; font-weight:600; color:#2a3343; }
+    input, textarea {
+      width:100%; border:none; outline:none; padding:16px 18px; border-radius:18px; background:#fff; font:inherit;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,.06), 0 10px 18px rgba(57,73,112,.06);
+    }
+    textarea { min-height:140px; resize:vertical; }
+    .info-grid { display:grid; gap:16px; }
+    .mini-info {
+      background: rgba(255,255,255,.72); border-radius:22px; padding:20px; box-shadow:0 12px 24px rgba(44,57,84,.06);
+    }
+    .mini-info strong { display:block; margin-bottom:6px; font-size:1rem; }
+    .mini-info span, .mini-info a { color:var(--muted); line-height:1.7; text-decoration:none; }
+    .mini-info a:hover { color:#5c70f6; }
+    @media (max-width:1100px) { .hero-grid, .contact-layout { grid-template-columns:1fr; } }
+    @media (max-width:860px) {
+      .page-wrap { margin:16px auto; padding:0 12px; }
+      .shell { padding:20px 18px 26px; border-radius:22px; }
+      .menu-btn { display:inline-flex; align-items:center; justify-content:center; }
+      .nav-links, .nav-cta { display:none; }
+      .topbar.open .nav-links { display:flex; position:absolute; top:calc(100% + 14px); left:0; right:0; flex-direction:column; gap:18px; align-items:flex-start; background:rgba(255,255,255,.96); padding:20px; border-radius:20px; box-shadow:0 16px 34px rgba(24,36,60,.12); }
+      .topbar.open .nav-cta { display:inline-flex; position:absolute; top:calc(100% + 210px); left:20px; }
+      .contact-scene { transform:scale(.86); transform-origin:center center; }
+    }
+    @media (max-width:560px) {
+      .hero-copy h1 { font-size:clamp(2.2rem,14vw,3.2rem); }
+      .form-grid { grid-template-columns:1fr; }
+      .contact-scene { transform:scale(.62); height:300px; }
+      .primary-btn, .secondary-btn { width:100%; }
+    }
+  </style>
 </head>
 <body>
-    <input type="checkbox" id="menu-toggle" class="menu-toggle">
-    <label for="menu-toggle" class="hamburger"><i class="fas fa-bars"></i></label>
-    <div class="sidebar">
-        <img src="Logo-removebg-preview.png" alt="Apptoryx Logo" class="logo">
-        <p class="tagline">App Story by X</p>
-        <ul>
-            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-            <li><a href="services.html"><i class="fas fa-cogs"></i> Services</a></li>
-            <li><a href="portfolio.html"><i class="fas fa-briefcase"></i> Portfolio</a></li>
-            <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
-        </ul>
-    </div>
-    <div class="main-content">
-        <div class="hero">
-            <h1>Contact Us</h1>
-            <p>Let's Start Crafting Your Digital Story Today</p>
+  <div class="page-wrap">
+    <section class="shell">
+      <header class="topbar" id="topbar">
+        <a href="index.html" class="brand"><img src="Logo-removebg-preview.png" alt="Apptoryx logo"></a>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+          </ul>
+        </nav>
+        <a href="contact.html" class="nav-cta">Get Started</a>
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+      </header>
+
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">CONTACT US</div>
+          <h1>Let’s build something clean, useful, and modern.</h1>
+          <p>
+            Your contact page is now redesigned in the same soft 3D visual style. It feels more premium, more welcoming,
+            and more professional for clients who want websites, dashboards, or custom digital systems.
+          </p>
+          <a href="https://wa.me/+971526979817" class="secondary-btn">Chat on WhatsApp</a>
         </div>
-        <div class="contact-info">
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="contact-scene">
+            <div class="base"></div>
+            <div class="card-main"></div>
+            <div class="mail-tab"></div>
+            <div class="pill one"></div>
+            <div class="pill two"></div>
+            <div class="dot one"></div>
+            <div class="dot two"></div>
+            <div class="dot three"></div>
+          </div>
         </div>
-        <form action="#" method="post">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-            
-            <button type="submit">Send Message</button>
-        </form>
-        <div class="consultation">
-            <a href="mailto:sara.businessenquiry@gmail.com">Book a Free Consultation</a>
+      </div>
+
+      <div class="contact-layout">
+        <div class="contact-card">
+          <h2>Send your enquiry</h2>
+          <p>Use this form layout in your live site. Right now it is styled and ready, and you can later connect it to Formspree, EmailJS, Netlify Forms, or your own backend.</p>
+          <form>
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" type="text" placeholder="Your name">
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" type="email" placeholder="your@email.com">
+              </div>
+              <div class="full">
+                <label for="service">Service Required</label>
+                <input id="service" type="text" placeholder="Website, dashboard, web app, automation...">
+              </div>
+              <div class="full">
+                <label for="message">Project Message</label>
+                <textarea id="message" placeholder="Tell us what you need, your business type, and any timeline."></textarea>
+              </div>
+              <div class="full">
+                <button type="submit" class="primary-btn">Send Message</button>
+              </div>
+            </div>
+          </form>
         </div>
-        <div class="footer">
-            <a href="https://wa.me/+971526979817">Contact Us</a> | <a href="mailto:sara.businessenquiry@gmail.com">Email Us</a>
+
+        <div class="info-grid">
+          <div class="info-card">
+            <h3>Talk directly with Apptoryx</h3>
+            <p>If you need a faster response, use the direct contact options below. This section is designed to look better than the previous plain contact page.</p>
+            <a href="https://wa.me/+971526979817" class="primary-btn">Open WhatsApp</a>
+          </div>
+          <div class="mini-info">
+            <strong>Email</strong>
+            <a href="mailto:sara.businessenquiry@gmail.com">sara.businessenquiry@gmail.com</a>
+          </div>
+          <div class="mini-info">
+            <strong>WhatsApp</strong>
+            <a href="https://wa.me/+971526979817">+971 52 697 9817</a>
+          </div>
+          <div class="mini-info">
+            <strong>Best for</strong>
+            <span>Business websites, custom web apps, dashboards, UI redesigns, and automation solutions.</span>
+          </div>
         </div>
-    </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const topbar = document.getElementById('topbar');
+    menuBtn.addEventListener('click', function () {
+      topbar.classList.toggle('open');
+    });
+  </script>
 </body>
 </html>

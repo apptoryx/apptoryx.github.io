@@ -1,271 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apptoryx - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            min-height: 100vh;
-            background-color: #F0F4F8;
-            color: #333;
-        }
-        .sidebar {
-            width: 250px;
-            background: linear-gradient(180deg, #0A2540 0%, #1E3A5F 100%);
-            color: white;
-            padding: 30px 20px;
-            height: 100%;
-            position: fixed;
-            overflow-y: auto;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            z-index: 1000;
-        }
-        .sidebar .logo {
-            width: 100%;
-            max-width: 200px;
-            display: block;
-            margin: 0 0 20px 0;
-        }
-        .sidebar .tagline {
-            font-style: italic;
-            margin-bottom: 30px;
-            color: #A8C7FA;
-            font-size: 1em;
-            text-align: left;
-        }
-        .sidebar ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .sidebar ul li {
-            margin: 15px 0;
-        }
-        .sidebar ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1em;
-            transition: color 0.3s ease;
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        .sidebar ul li a i {
-            margin-right: 10px;
-        }
-        .sidebar ul li a:hover {
-            color: #A8C7FA;
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-        .main-content {
-            margin-left: 250px;
-            padding: 60px 40px;
-            width: calc(100% - 250px);
-            box-sizing: border-box;
-            background-color: #F0F4F8;
-            transition: margin-left 0.3s ease, width 0.3s ease;
-        }
-        .hero {
-            text-align: center;
-            margin-bottom: 50px;
-            animation: fadeIn 1s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .hero h1 {
-            font-size: 2.5em;
-            margin: 0;
-            color: #0A2540;
-            font-weight: 700;
-        }
-        .hero p {
-            font-size: 1.2em;
-            color: #666;
-        }
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .portfolio-item {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-        }
-        .portfolio-item:hover {
-            transform: translateY(-5px);
-        }
-        .portfolio-item video {
-            width: 100%;
-            height: 200px;
-        }
-        .portfolio-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        .portfolio-item .image-placeholder {
-            width: 100%;
-            height: 200px;
-            background-color: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2em;
-            color: #666;
-        }
-        .portfolio-item .info {
-            padding: 20px;
-        }
-        .portfolio-item h3 {
-            margin-top: 0;
-            color: #0A2540;
-            font-size: 1.4em;
-        }
-        .portfolio-item p {
-            margin: 10px 0;
-            color: #666;
-        }
-        .portfolio-item a {
-            color: #0A2540;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 10px;
-        }
-        .portfolio-item a:hover {
-            text-decoration: underline;
-        }
-        .footer {
-            margin-top: 60px;
-            text-align: center;
-            font-size: 0.9em;
-            color: #666;
-        }
-        .footer a {
-            color: #0A2540;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .footer a:hover {
-            text-decoration: underline;
-        }
-        .menu-toggle {
-            display: none;
-        }
-        .hamburger {
-            display: none;
-            font-size: 2em;
-            cursor: pointer;
-            color: #0A2540;
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 1001;
-        }
-        @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
-            .sidebar {
-                transform: translateX(-100%);
-                position: fixed;
-                top: 0;
-                left: 0;
-                height: 100vh;
-                width: 250px;
-            }
-            .main-content {
-                margin-left: 0;
-                width: 100%;
-                padding: 60px 20px 30px 20px;
-            }
-            .menu-toggle:checked + .hamburger + .sidebar {
-                transform: translateX(0);
-            }
-            .menu-toggle:checked ~ .main-content {
-                margin-left: 250px;
-                width: calc(100% - 250px);
-            }
-            .hero h1 {
-                font-size: 2em;
-            }
-            .hero p {
-                font-size: 1em;
-            }
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apptoryx - Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg:#e9edf2; --text:#121212; --muted:#7f8795; --primary:#6e7cff; --shadow:0 25px 60px rgba(39,52,89,.12);
+    }
+    * { box-sizing:border-box; }
+    body {
+      margin:0; font-family:'Inter',sans-serif; color:var(--text); min-height:100vh; overflow-x:hidden;
+      background: radial-gradient(circle at top left, #f5f7fa 0%, var(--bg) 45%, #dde3ea 100%);
+    }
+    body::before, body::after { content:""; position:fixed; border-radius:50%; pointer-events:none; filter:blur(60px); opacity:.45; z-index:0; }
+    body::before { width:260px; height:260px; top:80px; left:-50px; background:rgba(177,201,255,.55); }
+    body::after { width:300px; height:300px; right:-90px; bottom:20px; background:rgba(244,195,240,.45); }
+    .page-wrap { position:relative; z-index:1; max-width:1240px; margin:38px auto; padding:0 18px; }
+    .shell {
+      background: linear-gradient(180deg, rgba(255,255,255,.86) 0%, rgba(247,247,248,.96) 100%);
+      border-radius:30px; box-shadow:var(--shadow); padding:28px 38px 38px; position:relative; overflow:hidden;
+    }
+    .shell::before { content:""; position:absolute; right:-40px; top:-40px; width:220px; height:220px; background: radial-gradient(circle, rgba(255,255,255,.9), rgba(255,255,255,0)); }
+    .topbar { display:flex; align-items:center; justify-content:space-between; gap:24px; position:relative; z-index:3; }
+    .brand img { height:42px; display:block; }
+    .nav-links { display:flex; align-items:center; gap:36px; list-style:none; padding:0; margin:0; }
+    .nav-links a { text-decoration:none; color:#979dab; font-size:.96rem; font-weight:500; transition:.25s ease; }
+    .nav-links a:hover, .nav-links a.active { color:var(--text); }
+    .nav-cta, .primary-btn, .secondary-btn {
+      text-decoration:none; border-radius:16px; font-weight:700; transition:transform .25s ease, box-shadow .25s ease; display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    }
+    .nav-cta { min-width:142px; padding:16px 24px; background:#0d0d0f; color:#fff; box-shadow:0 8px 18px rgba(0,0,0,.14); }
+    .primary-btn { background: linear-gradient(180deg, #7c8afc 0%, var(--primary) 100%); color:#fff; padding:16px 26px; box-shadow:0 16px 28px rgba(110,124,255,.28); }
+    .secondary-btn { background: rgba(255,255,255,.82); color:#3a4355; padding:16px 24px; border:1px solid rgba(0,0,0,.05); box-shadow:0 10px 24px rgba(40,52,75,.08); }
+    .nav-cta:hover, .primary-btn:hover, .secondary-btn:hover { transform: translateY(-2px); }
+    .menu-btn { display:none; width:48px; height:48px; border:none; border-radius:14px; background:#fff; color:var(--text); box-shadow:0 8px 20px rgba(0,0,0,.08); cursor:pointer; font-size:1rem; }
+    .hero-grid { display:grid; grid-template-columns:1.02fr 1fr; align-items:center; gap:22px; padding:30px 0 18px; }
+    .eyebrow { display:inline-flex; padding:8px 16px; border-radius:999px; background:#f1e1fb; color:#8d7de5; font-size:.72rem; letter-spacing:.08em; font-weight:800; margin-bottom:22px; }
+    .hero-copy h1 { margin:0 0 16px; font-size:clamp(2.4rem,5.6vw,4.6rem); line-height:.95; letter-spacing:-.06em; max-width:560px; }
+    .hero-copy p { margin:0 0 28px; color:var(--muted); font-size:1.05rem; line-height:1.75; max-width:490px; }
+    .hero-actions { display:flex; gap:14px; flex-wrap:wrap; }
+    .hero-visual { min-height:430px; display:flex; align-items:center; justify-content:center; position:relative; }
+    .portfolio-scene { position:relative; width:520px; height:380px; animation: floatScene 6s ease-in-out infinite; filter: drop-shadow(0 34px 40px rgba(60,77,111,.14)); }
+    @keyframes floatScene { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-10px); } }
+    .platform { position:absolute; left:102px; right:102px; bottom:38px; height:138px; background:linear-gradient(180deg,#f6d796,#efbb59); transform:skewX(-24deg); border-radius:18px; }
+    .laptop { position:absolute; left:150px; bottom:120px; width:200px; height:122px; background:linear-gradient(145deg,#9eb1ff,#7287ff); border-radius:24px; box-shadow:0 26px 34px rgba(93,110,247,.18); }
+    .laptop::before { content:""; position:absolute; inset:14px; border-radius:16px; background:linear-gradient(145deg,#ffe2ee 0%, #f3cce1 45%, #d2dcff 100%); }
+    .laptop::after { content:""; position:absolute; left:18px; right:18px; bottom:-16px; height:18px; background:linear-gradient(180deg,#eff3fb,#d9e1eb); border-radius:14px; transform:skewX(-26deg); }
+    .phone { position:absolute; right:128px; bottom:120px; width:82px; height:154px; border-radius:28px; background:linear-gradient(145deg,#ffffff,#eef3ff); box-shadow:0 18px 30px rgba(57,73,112,.12); transform:rotate(10deg); }
+    .phone::before { content:""; position:absolute; inset:11px; border-radius:20px; background:linear-gradient(180deg,#dff7ec,#bae5f7); }
+    .card-float, .circle, .tag { position:absolute; border-radius:24px; }
+    .card-float.one { left:84px; top:66px; width:122px; height:86px; background:linear-gradient(180deg,#ffffff,#edf2fb); box-shadow:0 18px 30px rgba(57,73,112,.12); transform:rotate(-10deg); }
+    .card-float.one::before { content:""; position:absolute; left:18px; top:20px; width:60px; height:10px; background:#a9b8ff; border-radius:999px; }
+    .card-float.one::after { content:""; position:absolute; left:18px; top:42px; width:84px; height:10px; background:#efbfd9; border-radius:999px; }
+    .card-float.two { right:88px; top:56px; width:104px; height:104px; background:linear-gradient(180deg,#ffffff,#eef6f9); box-shadow:0 18px 30px rgba(57,73,112,.12); }
+    .card-float.two::before { content:""; position:absolute; inset:18px; border-radius:20px; background:linear-gradient(145deg,#d7f0f8,#ffdbe8); }
+    .circle.one { width:58px; height:58px; left:116px; bottom:86px; background:radial-gradient(circle at 35% 30%, #83afff 0%, #5d6ef7 72%, #4f5add 100%); }
+    .circle.two { width:18px; height:18px; right:92px; bottom:248px; background:#f7a1c6; }
+    .circle.three { width:24px; height:24px; right:186px; top:22px; background:#ffc86f; }
+    .tag { right:148px; bottom:80px; width:118px; height:52px; background:linear-gradient(180deg,#fff,#edf2fb); box-shadow:0 16px 28px rgba(57,73,112,.12); transform:rotate(-8deg); }
+    .tag::before { content:"Live Demo"; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#6072e9; font-weight:700; font-size:.92rem; }
+    .section-head { display:flex; align-items:end; justify-content:space-between; gap:16px; flex-wrap:wrap; margin: 10px 0 26px; }
+    .section-head h2 { margin:0; font-size:clamp(1.8rem,3vw,2.5rem); letter-spacing:-.04em; }
+    .section-head p { margin:0; color:var(--muted); max-width:560px; line-height:1.7; }
+    .portfolio-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; }
+    .project-card {
+      background: rgba(255,255,255,.72); backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,.65); border-radius:26px; overflow:hidden;
+      box-shadow:0 16px 32px rgba(44,57,84,.08); transition: transform .28s ease, box-shadow .28s ease;
+    }
+    .project-card:hover { transform:translateY(-8px); box-shadow:0 22px 38px rgba(44,57,84,.12); }
+    .project-media {
+      height: 230px; position:relative; overflow:hidden; background:linear-gradient(145deg,#eef2fb,#f7f8fd);
+      display:flex; align-items:center; justify-content:center;
+    }
+    .project-media video, .project-media img { width:100%; height:100%; object-fit:cover; display:block; }
+    .mock-screen {
+      width:78%; height:66%; border-radius:24px; background:linear-gradient(145deg,#9eb1ff,#7287ff); box-shadow:0 24px 32px rgba(93,110,247,.18);
+      transform: rotate(-6deg);
+      position:relative;
+    }
+    .mock-screen::before { content:""; position:absolute; inset:14px; border-radius:18px; background:linear-gradient(145deg,#ffe2ee 0%, #f3cce1 45%, #d2dcff 100%); }
+    .mock-screen::after { content:""; position:absolute; left:16px; right:16px; bottom:18px; height:10px; border-radius:999px; background:rgba(255,255,255,.75); }
+    .project-body { padding:24px; }
+    .tagline { display:inline-flex; padding:7px 12px; border-radius:999px; font-size:.75rem; font-weight:700; margin-bottom:14px; }
+    .tag-blue { background:#e1e8ff; color:#5c70f6; }
+    .tag-pink { background:#ffe4ef; color:#d86b9c; }
+    .tag-mint { background:#e4fbef; color:#39a673; }
+    .project-body h3 { margin:0 0 10px; font-size:1.24rem; letter-spacing:-.03em; }
+    .project-body p { margin:0 0 16px; color:var(--muted); line-height:1.7; }
+    .project-body ul { margin:0 0 18px; padding-left:18px; color:#4a5364; line-height:1.7; }
+    .bottom-cta { margin-top:26px; background:rgba(255,255,255,.72); border-radius:26px; padding:26px; box-shadow:0 16px 32px rgba(44,57,84,.08); display:flex; justify-content:space-between; gap:18px; align-items:center; flex-wrap:wrap; }
+    .bottom-cta p { margin:0; color:var(--muted); line-height:1.7; max-width:640px; }
+    @media (max-width:1100px) { .hero-grid, .portfolio-grid { grid-template-columns:1fr; } }
+    @media (max-width:860px) {
+      .page-wrap { margin:16px auto; padding:0 12px; }
+      .shell { padding:20px 18px 26px; border-radius:22px; }
+      .menu-btn { display:inline-flex; align-items:center; justify-content:center; }
+      .nav-links, .nav-cta { display:none; }
+      .topbar.open .nav-links { display:flex; position:absolute; top:calc(100% + 14px); left:0; right:0; flex-direction:column; gap:18px; align-items:flex-start; background:rgba(255,255,255,.96); padding:20px; border-radius:20px; box-shadow:0 16px 34px rgba(24,36,60,.12); }
+      .topbar.open .nav-cta { display:inline-flex; position:absolute; top:calc(100% + 210px); left:20px; }
+      .portfolio-scene { transform:scale(.86); transform-origin:center center; }
+    }
+    @media (max-width:560px) {
+      .hero-copy h1 { font-size:clamp(2.2rem,14vw,3.2rem); }
+      .primary-btn, .secondary-btn { width:100%; }
+      .portfolio-scene { transform:scale(.62); height:300px; }
+      .bottom-cta { align-items:flex-start; }
+    }
+  </style>
 </head>
 <body>
-    <input type="checkbox" id="menu-toggle" class="menu-toggle">
-    <label for="menu-toggle" class="hamburger"><i class="fas fa-bars"></i></label>
-    <div class="sidebar">
-        <img src="Logo-removebg-preview.png" alt="Apptoryx Logo" class="logo">
-        <p class="tagline">App Story by X</p>
-        <ul>
-            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-            <li><a href="services.html"><i class="fas fa-cogs"></i> Services</a></li>
-            <li><a href="portfolio.html"><i class="fas fa-briefcase"></i> Portfolio</a></li>
-            <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
-        </ul>
-    </div>
-    <div class="main-content">
-        <div class="hero">
-            <h1>Our Portfolio</h1>
-            <p>Explore Our Creative Web App Projects</p>
+  <div class="page-wrap">
+    <section class="shell">
+      <header class="topbar" id="topbar">
+        <a href="index.html" class="brand"><img src="Logo-removebg-preview.png" alt="Apptoryx logo"></a>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html" class="active">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <a href="contact.html" class="nav-cta">Get Started</a>
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+      </header>
+
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">OUR WORK</div>
+          <h1>Projects that look modern and work hard.</h1>
+          <p>
+            Your portfolio page now follows the same premium soft-3D design style. I kept the focus on digital products,
+            dashboards, and web solutions so your visitors can quickly understand what Apptoryx can deliver.
+          </p>
+          <div class="hero-actions">
+            <a href="contact.html" class="primary-btn">Build Something Similar</a>
+            <a href="services.html" class="secondary-btn">Explore Services</a>
+          </div>
         </div>
-        <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <video controls>
-                    <source src="TAKT App.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <div class="info">
-                    <h3>TAKT App</h3>
-                    <p>A dynamic web app project showcasing innovative features.</p>
-                    <a href="#">View Details</a>
-                </div>
-            </div>
-            <div class="portfolio-item">
-                <video controls>
-                    <source src="Transport List - Camp Master - Power BI.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <div class="info">
-                    <h3>Analytics Dashboard</h3>
-                    <p>Integrated Power BI for data insights, with interactive charts and reports.</p>
-                    <a href="#">View Details</a>
-                </div>
-            </div>
-            <div class="portfolio-item">
-                <img src="Vow Vault.png" alt="VenueVows Project">
-                <div class="info">
-                    <h3>VenueVows</h3>
-                    <p>Cooking Somthing New-VenueVows.</p>
-                    <a href="#">View Details</a>
-                </div>
-            </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="portfolio-scene">
+            <div class="platform"></div>
+            <div class="laptop"></div>
+            <div class="phone"></div>
+            <div class="card-float one"></div>
+            <div class="card-float two"></div>
+            <div class="circle one"></div>
+            <div class="circle two"></div>
+            <div class="circle three"></div>
+            <div class="tag"></div>
+          </div>
         </div>
-        <div class="footer">
-            <a href="https://wa.me/+971526979817">Contact Us</a> | <a href="mailto:sara.businessenquiry@gmail.com">Email Us</a>
+      </div>
+
+      <div class="section-head">
+        <h2>Featured work</h2>
+        <p>These project blocks are redesigned to feel more premium. Where media files exist, you can plug them in. Where there is no media, the visual mockup still keeps the page looking complete.</p>
+      </div>
+
+      <div class="portfolio-grid">
+        <article class="project-card">
+          <div class="project-media">
+            <div class="mock-screen"></div>
+          </div>
+          <div class="project-body">
+            <span class="tagline tag-blue">Construction App</span>
+            <h3>TAKT App</h3>
+            <p>Construction progress tracking system with smart dashboards, role-based interaction, and daily site visibility.</p>
+            <ul>
+              <li>Progress monitoring and user updates</li>
+              <li>Dashboard-focused management view</li>
+              <li>Custom workflow logic for operations</li>
+            </ul>
+            <a href="contact.html" class="secondary-btn">Request Similar App</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-media">
+            <div class="mock-screen" style="transform:rotate(6deg);background:linear-gradient(145deg,#bfe9f7,#8bd3f4);"></div>
+          </div>
+          <div class="project-body">
+            <span class="tagline tag-pink">Reporting</span>
+            <h3>Analytics Dashboard</h3>
+            <p>Interactive reporting interface with a clean presentation style for KPIs, transport planning, and management insights.</p>
+            <ul>
+              <li>Power BI style presentation</li>
+              <li>Readable management layout</li>
+              <li>Visual summary for decisions</li>
+            </ul>
+            <a href="contact.html" class="secondary-btn">Need Dashboard?</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-media">
+            <div class="mock-screen" style="transform:rotate(-3deg);background:linear-gradient(145deg,#ffdce8,#f4bdd8);"></div>
+          </div>
+          <div class="project-body">
+            <span class="tagline tag-mint">Concept Project</span>
+            <h3>VenueVows</h3>
+            <p>Brand-forward concept direction for a visually polished digital experience with elegant presentation and user-friendly flow.</p>
+            <ul>
+              <li>Visual-first interface concept</li>
+              <li>Branding-led product look</li>
+              <li>Clean and engaging structure</li>
+            </ul>
+            <a href="contact.html" class="secondary-btn">Discuss Concept</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="bottom-cta">
+        <div>
+          <h3 style="margin:0 0 8px; font-size:1.35rem; letter-spacing:-.03em;">Want your real screenshots and videos added?</h3>
+          <p>Send your actual app screenshots, dashboard exports, or project videos and this portfolio layout can be upgraded into a full showcase page with real visuals, live demos, and project detail sections.</p>
         </div>
-    </div>
+        <a href="https://wa.me/+971526979817" class="primary-btn">Send Media on WhatsApp</a>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const topbar = document.getElementById('topbar');
+    menuBtn.addEventListener('click', function () {
+      topbar.classList.toggle('open');
+    });
+  </script>
 </body>
 </html>
