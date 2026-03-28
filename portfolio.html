@@ -1,4 +1,261 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Apptoryx - Portfolio</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><style>
 :root{--bg:#e9edf2;--surface:rgba(255,255,255,.74);--text:#121212;--muted:#70798a;--primary:#6e7cff;--shadow:0 25px 60px rgba(39,52,89,.12);--shadow-soft:0 16px 32px rgba(44,57,84,.08)}*{box-sizing:border-box}body{margin:0;font-family:'Inter',sans-serif;background:radial-gradient(circle at top left,#f5f7fa 0%,var(--bg) 45%,#dde3ea 100%);color:var(--text);min-height:100vh;overflow-x:hidden}body::before,body::after{content:"";position:fixed;border-radius:50%;pointer-events:none;filter:blur(60px);opacity:.45;z-index:0}body::before{width:260px;height:260px;top:80px;left:-50px;background:rgba(177,201,255,.55)}body::after{width:300px;height:300px;right:-90px;bottom:20px;background:rgba(244,195,240,.45)}.page-wrap{position:relative;z-index:1;max-width:1240px;margin:38px auto;padding:0 18px 34px}.shell,.section{background:linear-gradient(180deg,rgba(255,255,255,.86) 0%,rgba(247,247,248,.96) 100%);border-radius:30px;box-shadow:var(--shadow);padding:28px 38px 38px;position:relative;overflow:hidden}.section{margin-top:28px;background:linear-gradient(180deg,rgba(255,255,255,.52),rgba(255,255,255,.36));border:1px solid rgba(255,255,255,.45);box-shadow:var(--shadow-soft);padding:28px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:24px;position:relative;z-index:4}.brand img{height:42px;display:block}.nav-links{display:flex;align-items:center;gap:36px;list-style:none;padding:0;margin:0}.nav-links a{text-decoration:none;color:#979dab;font-size:.96rem;font-weight:500;transition:.25s ease}.nav-links a:hover,.nav-links a.active{color:var(--text)}.nav-cta,.primary-btn,.secondary-btn{ text-decoration:none;border-radius:16px;font-weight:700;transition:.25s ease;display:inline-flex;align-items:center;justify-content:center;gap:10px;border:none;cursor:pointer;font-family:inherit}.nav-cta{min-width:148px;padding:16px 24px;background:#0d0d0f;color:#fff;box-shadow:0 8px 18px rgba(0,0,0,.14)}.primary-btn{background:linear-gradient(180deg,#7c8afc 0%,var(--primary) 100%);color:#fff;padding:16px 26px;box-shadow:0 16px 28px rgba(110,124,255,.28)}.secondary-btn{background:rgba(255,255,255,.82);color:#3a4355;padding:16px 24px;border:1px solid rgba(0,0,0,.05);box-shadow:0 10px 24px rgba(40,52,75,.08)}.nav-cta:hover,.primary-btn:hover,.secondary-btn:hover{transform:translateY(-2px)}.menu-btn{display:none;width:48px;height:48px;border:none;border-radius:14px;background:#fff;color:var(--text);box-shadow:0 8px 20px rgba(0,0,0,.08);cursor:pointer;font-size:1rem}.hero-grid{display:grid;grid-template-columns:1.02fr 1fr;align-items:center;gap:22px;padding:30px 0 18px}.eyebrow{display:inline-flex;align-items:center;padding:9px 16px;border-radius:999px;background:#f1e1fb;color:#8d7de5;font-size:.72rem;letter-spacing:.08em;font-weight:800;margin-bottom:22px}.hero-copy h1{margin:0 0 16px;font-size:clamp(2.5rem,5.8vw,4.8rem);line-height:.94;letter-spacing:-.06em;max-width:620px}.hero-copy p{margin:0 0 24px;color:var(--muted);font-size:1.05rem;line-height:1.8;max-width:520px}.hero-actions{display:flex;gap:14px;flex-wrap:wrap}.hero-visual{min-height:430px;display:flex;align-items:center;justify-content:center;position:relative}.mockup-wrap{width:480px;height:360px;position:relative;animation:floatScene 6s ease-in-out infinite;filter:drop-shadow(0 34px 40px rgba(60,77,111,.14))}@keyframes floatScene{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}.screen-large,.screen-small,.screen-card{position:absolute;border-radius:28px;background:rgba(255,255,255,.9);box-shadow:0 18px 30px rgba(57,73,112,.14);overflow:hidden}.screen-large{left:70px;top:40px;width:290px;height:200px;transform:rotate(-7deg)}.screen-small{right:30px;top:110px;width:160px;height:220px;transform:rotate(10deg)}.screen-card{left:20px;bottom:20px;width:200px;height:130px;transform:rotate(-3deg)}.screen-top{height:22px;background:linear-gradient(90deg,#f0f4ff,#fff1f7)}.screen-body{padding:16px;height:calc(100% - 22px);background:linear-gradient(180deg,#fff,#eff3fb)}.bar{height:12px;border-radius:999px;margin-bottom:12px}.b1{width:78%;background:#9fb1ff}.b2{width:56%;background:#f1b9d7}.b3{width:90%;background:#bfead9}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.mini-box{border-radius:16px;background:linear-gradient(145deg,#dfe8ff,#b7c8ff);min-height:56px}.mini-box.pink{background:linear-gradient(145deg,#ffe2ef,#f5bfd7)}.mini-box.mint{background:linear-gradient(145deg,#e4fbef,#c0f0d8)}.bubble{position:absolute;border-radius:50%;box-shadow:0 18px 24px rgba(93,110,247,.14)}.bubble.one{width:54px;height:54px;left:40px;top:10px;background:radial-gradient(circle at 35% 30%,#83afff 0%,#5d6ef7 72%,#4f5add 100%)}.bubble.two{width:18px;height:18px;right:18px;top:40px;background:#ffc86f}.bubble.three{width:20px;height:20px;left:160px;bottom:8px;background:#f7a1c6}.proof-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:10px}.proof-card,.case-card,.result-card{background:rgba(255,255,255,.78);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.7);border-radius:24px;padding:22px;box-shadow:0 14px 28px rgba(44,57,84,.07)}.proof-card strong{display:block;font-size:1.35rem;margin-bottom:6px;letter-spacing:-.04em}.proof-card span,.case-card p,.result-card p,.section-head p{color:var(--muted);line-height:1.72}.section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:22px}.section-head h2{margin:0 0 10px;letter-spacing:-.04em}.section-head p{margin:0;max-width:620px}.case-grid,.result-grid{display:grid;gap:18px}.case-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.result-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.case-card:hover,.result-card:hover{transform:translateY(-6px);box-shadow:0 22px 36px rgba(44,57,84,.11)}.case-tag{display:inline-flex;padding:7px 12px;border-radius:999px;font-size:.75rem;font-weight:700;margin-bottom:12px}.tag-blue{background:#e1e8ff;color:#5c70f6}.tag-pink{background:#ffe4ef;color:#d86b9c}.tag-mint{background:#e4fbef;color:#39a673}.case-card h3,.result-card h3{margin:0 0 10px;font-size:1.18rem;letter-spacing:-.03em}.case-card ul,.result-card ul{margin:14px 0 0;padding-left:18px;color:#4a5364;line-height:1.7}.cta-banner{margin-top:28px;background:linear-gradient(135deg,rgba(110,124,255,.92),rgba(233,112,180,.82));color:#fff;border-radius:30px;padding:30px;box-shadow:0 20px 38px rgba(96,88,185,.22);display:flex;justify-content:space-between;gap:22px;flex-wrap:wrap;align-items:center}.cta-banner h2{margin:0 0 10px;letter-spacing:-.04em}.cta-banner p{color:rgba(255,255,255,.86);max-width:620px;line-height:1.72;margin:0}.cta-actions{display:flex;gap:12px;flex-wrap:wrap}.cta-banner .primary-btn{background:#0f1020;box-shadow:0 16px 24px rgba(0,0,0,.18)}.cta-banner .secondary-btn{background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.24);box-shadow:none}@media (max-width:1100px){.hero-grid,.proof-strip,.case-grid,.result-grid{grid-template-columns:1fr}}@media (max-width:860px){.page-wrap{margin:16px auto;padding:0 12px 24px}.shell,.section{padding:20px 18px 26px;border-radius:22px}.menu-btn{display:inline-flex;align-items:center;justify-content:center}.nav-links,.nav-cta{display:none}.topbar.open .nav-links{display:flex;position:absolute;top:calc(100% + 14px);left:0;right:0;flex-direction:column;gap:18px;align-items:flex-start;background:rgba(255,255,255,.96);padding:20px;border-radius:20px;box-shadow:0 16px 34px rgba(24,36,60,.12)}.topbar.open .nav-cta{display:inline-flex;position:absolute;top:calc(100% + 210px);left:20px}.hero-grid{padding-top:36px}.hero-copy{text-align:center}.hero-actions,.cta-actions{justify-content:center}.mockup-wrap{transform:scale(.84);transform-origin:center center}}@media (max-width:560px){.hero-copy h1{font-size:clamp(2.2rem,14vw,3.2rem)}.primary-btn,.secondary-btn,.cta-actions a{width:100%}.mockup-wrap{transform:scale(.62);height:300px}}
-</style></head><body><div class="page-wrap"><section class="shell"><header class="topbar" id="topbar"><a href="index.html" class="brand"><img src="Logo-removebg-preview.png" alt="Apptoryx logo"></a><nav><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html" class="active">Portfolio</a></li><li><a href="contact.html">Contact</a></li></ul></nav><a href="contact.html" class="nav-cta">Get Started</a><button class="menu-btn" id="menuBtn" aria-label="Toggle menu"><i class="fas fa-bars"></i></button></header><div class="hero-grid"><div class="hero-copy"><div class="eyebrow">SELECTED WORK</div><h1>Projects That Show Real Use, Not Just Good Design.</h1><p>A strong portfolio should help visitors understand the problem, the solution, and the value created. This page presents your work in a more premium, trustworthy, and business-focused way.</p><div class="hero-actions"><a href="contact.html" class="primary-btn">Discuss a Similar Project</a><a href="services.html" class="secondary-btn">Explore Services</a></div></div><div class="hero-visual" aria-hidden="true"><div class="mockup-wrap"><div class="screen-large"><div class="screen-top"></div><div class="screen-body"><div class="bar b1"></div><div class="bar b2"></div><div class="grid"><div class="mini-box"></div><div class="mini-box pink"></div><div class="mini-box mint"></div><div class="mini-box"></div></div></div></div><div class="screen-small"><div class="screen-top"></div><div class="screen-body"><div class="bar b3"></div><div class="bar b2"></div><div class="bar b1"></div></div></div><div class="screen-card"><div class="screen-top"></div><div class="screen-body"><div class="bar b2"></div><div class="bar b3"></div></div></div><div class="bubble one"></div><div class="bubble two"></div><div class="bubble three"></div></div></div></div><div class="proof-strip"><div class="proof-card"><strong>Clearer storytelling</strong><span>Each project explains what the client needed and what the solution achieved.</span></div><div class="proof-card"><strong>Stronger trust</strong><span>Case-study style presentation feels much more premium than simple gallery cards.</span></div><div class="proof-card"><strong>Better conversion</strong><span>Visitors can imagine their own project after seeing structured examples.</span></div></div></section><section class="section"><div class="section-head"><div><h2>Featured case-study style work</h2><p>These are written in a stronger presentation format so your portfolio sells outcomes, not only visuals.</p></div></div><div class="case-grid"><div class="case-card"><span class="case-tag tag-blue">Operations App</span><h3>TAKT Progress Tracking System</h3><p>A custom web app designed to organize progress updates, improve visibility, and support daily project tracking in a cleaner format.</p><ul><li>Structured task and floor-wise updates</li><li>Better visibility for teams and management</li><li>Improved usability compared to manual tracking</li></ul></div><div class="case-card"><span class="case-tag tag-pink">Dashboard Project</span><h3>Interactive Reporting Experience</h3><p>A reporting-focused solution built to present data in a way that helps managers understand performance faster and make better decisions.</p><ul><li>Visual reporting layout</li><li>KPI and progress presentation</li><li>Management-friendly dashboard structure</li></ul></div><div class="case-card"><span class="case-tag tag-mint">Workflow Solution</span><h3>Business Process Automation</h3><p>A digital workflow approach designed to reduce repeated manual work and connect data, people, and tasks more smoothly.</p><ul><li>Cleaner process handling</li><li>Improved data movement</li><li>Better workflow consistency</li></ul></div></div></section><section class="section"><div class="section-head"><div><h2>What your portfolio should communicate</h2><p>This section improves your positioning by making the portfolio page useful even before you add more real screenshots, videos, or client names.</p></div></div><div class="result-grid"><div class="result-card"><h3>Problem → Solution → Result</h3><p>The strongest portfolio projects do not just say what was built. They explain why it mattered.</p><ul><li>What issue existed before</li><li>What system or design was created</li><li>What improved after implementation</li></ul></div><div class="result-card"><h3>Premium presentation matters</h3><p>When your work is presented like a case study, visitors see you as a solution partner, not just a designer or coder.</p><ul><li>Higher trust perception</li><li>Better value positioning</li><li>More serious client interest</li></ul></div></div></section><div class="cta-banner"><div><h2>Want your project to be the next featured case study?</h2><p>If you need a website, dashboard, internal system, or automation solution, let’s build something strong enough to showcase with confidence.</p></div><div class="cta-actions"><a href="contact.html" class="primary-btn">Start a Project</a><a href="https://wa.me/+971526979817" class="secondary-btn">Chat on WhatsApp</a></div></div></div><script>const menuBtn=document.getElementById('menuBtn');const topbar=document.getElementById('topbar');menuBtn.addEventListener('click',function(){topbar.classList.toggle('open');});</script></body></html>
+
+    img, video, canvas, svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .shell, .section, .trust-panel, .stats-panel, .value-panel, .promise-panel,
+    .service-card, .detail-card, .proof-card, .case-card, .result-card,
+    .contact-panel, form, .info-card, .feature-card, .process-card, .metric-card {
+      min-width: 0;
+    }
+
+    .hero-copy, .hero-visual, .hero-grid, .feature-grid, .cases-grid, .process-grid,
+    .service-grid, .detail-grid, .contact-grid, .proof-strip, .result-grid,
+    .trust-strip, .value-strip, .stat-grid, .promise-list, .field-grid {
+      min-width: 0;
+    }
+
+    .hero-copy h1, .hero-copy p, .section-head h2, .section-head p,
+    .trust-panel h3, .stats-panel h3, .value-panel h3, .promise-panel h3,
+    .case-card h3, .result-card h3, .service-card h3, .detail-card h3,
+    .feature-card h3, .process-card h3, .cta-banner h2, .cta-banner p {
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .hero-actions a, .cta-actions a, .topbar a, .nav-links a, .mini-badge, .trust-pill, .promise-item {
+      white-space: normal;
+    }
+
+    @media (max-width: 1200px) {
+      .page-wrap {
+        max-width: 100%;
+        padding: 0 16px 28px;
+      }
+
+      .shell, .section {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .hero-grid {
+        gap: 18px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .page-wrap {
+        margin: 20px auto;
+      }
+
+      .shell, .section {
+        border-radius: 24px;
+        padding: 22px 20px 24px;
+      }
+
+      .hero-grid,
+      .trust-strip,
+      .feature-grid,
+      .cases-grid,
+      .process-grid,
+      .service-grid,
+      .detail-grid,
+      .contact-grid,
+      .proof-strip,
+      .result-grid,
+      .value-strip {
+        grid-template-columns: 1fr !important;
+      }
+
+      .hero-copy {
+        padding: 8px 0 0 !important;
+        text-align: center;
+        align-items: center;
+      }
+
+      .eyebrow {
+        align-self: center !important;
+      }
+
+      .hero-badges,
+      .hero-points,
+      .hero-actions,
+      .hero-note,
+      .cta-actions,
+      .trust-pills {
+        justify-content: center;
+      }
+
+      .hero-visual {
+        min-height: 420px !important;
+        padding: 0 !important;
+      }
+
+      .section-head {
+        align-items: flex-start;
+      }
+
+      .section-head .ghost-btn {
+        width: auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        overflow-x: hidden;
+      }
+
+      .page-wrap {
+        margin: 14px auto;
+        padding: 0 12px 24px;
+      }
+
+      .shell, .section {
+        border-radius: 22px;
+        padding: 18px 16px 22px;
+      }
+
+      .topbar {
+        gap: 14px;
+      }
+
+      .menu-btn {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .nav-links, .nav-cta {
+        display: none;
+      }
+
+      .topbar.open .nav-links {
+        display: flex !important;
+        position: absolute;
+        top: calc(100% + 12px);
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 14px;
+        align-items: flex-start;
+        background: rgba(255,255,255,.98);
+        padding: 18px;
+        border-radius: 18px;
+        box-shadow: 0 16px 34px rgba(24,36,60,.12);
+      }
+
+      .topbar.open .nav-cta {
+        display: inline-flex !important;
+        position: absolute;
+        top: calc(100% + 176px);
+        left: 18px;
+      }
+
+      .hero-grid {
+        padding-top: 34px !important;
+      }
+
+      .hero-copy h1 {
+        font-size: clamp(2.15rem, 10vw, 3.4rem) !important;
+        line-height: 0.98 !important;
+      }
+
+      .hero-copy p {
+        font-size: 0.98rem !important;
+        line-height: 1.7 !important;
+      }
+
+      .hero-visual {
+        min-height: 340px !important;
+      }
+
+      .scene,
+      .service-scene,
+      .mockup-wrap {
+        transform: scale(.72);
+        transform-origin: center center;
+      }
+
+      .stat-grid,
+      .promise-list,
+      .field-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .contact-item {
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .shell, .section {
+        padding: 16px 14px 20px;
+        border-radius: 20px;
+      }
+
+      .hero-copy h1 {
+        font-size: clamp(1.95rem, 11vw, 2.8rem) !important;
+      }
+
+      .primary-btn, .secondary-btn, .ghost-btn,
+      .hero-actions a, .cta-actions a, .nav-cta,
+      form .primary-btn, form .secondary-btn {
+        width: 100% !important;
+      }
+
+      .hero-actions, .cta-actions {
+        width: 100%;
+      }
+
+      .scene,
+      .service-scene,
+      .mockup-wrap {
+        transform: scale(.56);
+      }
+
+      .hero-visual {
+        min-height: 260px !important;
+      }
+
+      .mini-badge, .trust-pill, .promise-item {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+      }
+
+      .contact-panel, form, .info-card, .service-card, .detail-card,
+      .proof-card, .case-card, .result-card, .feature-card, .process-card {
+        padding: 18px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .page-wrap {
+        padding: 0 10px 20px;
+      }
+
+      .shell, .section {
+        padding: 14px 12px 18px;
+      }
+
+      .hero-copy h1 {
+        font-size: clamp(1.8rem, 12vw, 2.4rem) !important;
+      }
+
+      .scene,
+      .service-scene,
+      .mockup-wrap {
+        transform: scale(.48);
+      }
+
+      .hero-visual {
+        min-height: 220px !important;
+      }
+    }
+
+</style></head><body><div class="page-wrap"><section class="shell"><header class="topbar" id="topbar"><a href="index.html" class="brand"><img src="Logo-removebg-preview.png" alt="Apptoryx logo"></a><nav><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html" class="active">Portfolio</a></li><li><a href="contact.html">Contact</a></li></ul></nav><a href="contact.html" class="nav-cta">Get Started</a><button class="menu-btn" id="menuBtn" aria-label="Toggle menu"><i class="fas fa-bars"></i></button></header><div class="hero-grid"><div class="hero-copy"><div class="eyebrow">SELECTED WORK</div><h1>Projects Built for Real Business Impact, Not Just Design.</h1><p>Our work focuses on solving real business challenges—not just creating visually appealing designs. Each project is built to improve efficiency, visibility, and day-to-day operations.</p><div class="hero-actions"><a href="contact.html" class="primary-btn">Discuss a Similar Project</a><a href="services.html" class="secondary-btn">Explore Services</a></div></div><div class="hero-visual" aria-hidden="true"><div class="mockup-wrap"><div class="screen-large"><div class="screen-top"></div><div class="screen-body"><div class="bar b1"></div><div class="bar b2"></div><div class="grid"><div class="mini-box"></div><div class="mini-box pink"></div><div class="mini-box mint"></div><div class="mini-box"></div></div></div></div><div class="screen-small"><div class="screen-top"></div><div class="screen-body"><div class="bar b3"></div><div class="bar b2"></div><div class="bar b1"></div></div></div><div class="screen-card"><div class="screen-top"></div><div class="screen-body"><div class="bar b2"></div><div class="bar b3"></div></div></div><div class="bubble one"></div><div class="bubble two"></div><div class="bubble three"></div></div></div></div><div class="proof-strip"><div class="proof-card"><strong>Clear project understanding</strong><span>Each project clearly shows the problem, the solution, and the outcome.</span></div><div class="proof-card"><strong>Built for real business use</strong><span>Solutions are designed to improve actual workflows, not just presentation.</span></div><div class="proof-card"><strong>Focused on results</strong><span>Every system is created to deliver measurable improvements in efficiency and visibility.</span></div></div></section><section class="section"><div class="section-head"><div><h2>Selected projects and solutions</h2><p>A selection of solutions built to improve operations, reporting, and business efficiency across different use cases.</p></div></div><div class="case-grid"><div class="case-card"><span class="case-tag tag-blue">Operations App</span><h3>Construction Progress Tracking</h3><p>A custom web application developed to streamline progress tracking, improve team visibility, and simplify daily project updates.</p><ul><li>Structured task and floor-wise updates</li><li>Better visibility for teams and management</li><li>Improved usability compared to manual tracking</li></ul></div><div class="case-card"><span class="case-tag tag-pink">Dashboard Project</span><h3>Interactive Reporting Experience</h3><p>A reporting solution designed to give management clearer insights, faster decision-making, and improved performance tracking.</p><ul><li>Visual reporting layout</li><li>KPI and progress presentation</li><li>Management-friendly dashboard structure</li></ul></div><div class="case-card"><span class="case-tag tag-mint">Workflow Solution</span><h3>Business Process Automation</h3><p>A digital workflow system built to reduce manual effort, improve coordination, and ensure smoother day-to-day operations.</p><ul><li>Cleaner process handling</li><li>Improved data movement</li><li>Better workflow consistency</li></ul></div></div></section><section class="section"><div class="section-head"><div><h2>What you can expect from our solutions</h2><p>Every solution is designed with a clear focus on solving business challenges, improving efficiency, and delivering measurable results.</p></div></div><div class="result-grid"><div class="result-card"><h3>Clear problem-solving approach</h3><p>We focus on understanding your challenges, building the right solution, and delivering measurable improvements.</p><ul><li>Understand the business challenge</li><li>Build the right-fit solution</li><li>Deliver measurable improvement</li></ul></div><div class="result-card"><h3>Designed for real business impact</h3><p>Our solutions are built to support your operations, improve visibility, and deliver long-term value to your business.</p><ul><li>Support stronger operations</li><li>Improve visibility and control</li><li>Create long-term business value</li></ul></div></div></section><div class="cta-banner"><div><h2>Ready to build a solution for your business?</h2><p>If you need a website, dashboard, internal system, or automation solution, we can help you create something that delivers real results.</p></div><div class="cta-actions"><a href="contact.html" class="primary-btn">Start a Project</a><a href="https://wa.me/+971526979817" class="secondary-btn">Chat on WhatsApp</a></div></div></div><script>const menuBtn=document.getElementById('menuBtn');const topbar=document.getElementById('topbar');menuBtn.addEventListener('click',function(){topbar.classList.toggle('open');});</script></body></html>

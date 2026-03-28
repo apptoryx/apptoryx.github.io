@@ -1026,7 +1026,264 @@
       .hero-visual { min-height: 340px; }
       .scene { transform: scale(.62); }
     }
-  </style>
+  
+    img, video, canvas, svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .shell, .section, .trust-panel, .stats-panel, .value-panel, .promise-panel,
+    .service-card, .detail-card, .proof-card, .case-card, .result-card,
+    .contact-panel, form, .info-card, .feature-card, .process-card, .metric-card {
+      min-width: 0;
+    }
+
+    .hero-copy, .hero-visual, .hero-grid, .feature-grid, .cases-grid, .process-grid,
+    .service-grid, .detail-grid, .contact-grid, .proof-strip, .result-grid,
+    .trust-strip, .value-strip, .stat-grid, .promise-list, .field-grid {
+      min-width: 0;
+    }
+
+    .hero-copy h1, .hero-copy p, .section-head h2, .section-head p,
+    .trust-panel h3, .stats-panel h3, .value-panel h3, .promise-panel h3,
+    .case-card h3, .result-card h3, .service-card h3, .detail-card h3,
+    .feature-card h3, .process-card h3, .cta-banner h2, .cta-banner p {
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .hero-actions a, .cta-actions a, .topbar a, .nav-links a, .mini-badge, .trust-pill, .promise-item {
+      white-space: normal;
+    }
+
+    @media (max-width: 1200px) {
+      .page-wrap {
+        max-width: 100%;
+        padding: 0 16px 28px;
+      }
+
+      .shell, .section {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .hero-grid {
+        gap: 18px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .page-wrap {
+        margin: 20px auto;
+      }
+
+      .shell, .section {
+        border-radius: 24px;
+        padding: 22px 20px 24px;
+      }
+
+      .hero-grid,
+      .trust-strip,
+      .feature-grid,
+      .cases-grid,
+      .process-grid,
+      .service-grid,
+      .detail-grid,
+      .contact-grid,
+      .proof-strip,
+      .result-grid,
+      .value-strip {
+        grid-template-columns: 1fr !important;
+      }
+
+      .hero-copy {
+        padding: 8px 0 0 !important;
+        text-align: center;
+        align-items: center;
+      }
+
+      .eyebrow {
+        align-self: center !important;
+      }
+
+      .hero-badges,
+      .hero-points,
+      .hero-actions,
+      .hero-note,
+      .cta-actions,
+      .trust-pills {
+        justify-content: center;
+      }
+
+      .hero-visual {
+        min-height: 420px !important;
+        padding: 0 !important;
+      }
+
+      .section-head {
+        align-items: flex-start;
+      }
+
+      .section-head .ghost-btn {
+        width: auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        overflow-x: hidden;
+      }
+
+      .page-wrap {
+        margin: 14px auto;
+        padding: 0 12px 24px;
+      }
+
+      .shell, .section {
+        border-radius: 22px;
+        padding: 18px 16px 22px;
+      }
+
+      .topbar {
+        gap: 14px;
+      }
+
+      .menu-btn {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .nav-links, .nav-cta {
+        display: none;
+      }
+
+      .topbar.open .nav-links {
+        display: flex !important;
+        position: absolute;
+        top: calc(100% + 12px);
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 14px;
+        align-items: flex-start;
+        background: rgba(255,255,255,.98);
+        padding: 18px;
+        border-radius: 18px;
+        box-shadow: 0 16px 34px rgba(24,36,60,.12);
+      }
+
+      .topbar.open .nav-cta {
+        display: inline-flex !important;
+        position: absolute;
+        top: calc(100% + 176px);
+        left: 18px;
+      }
+
+      .hero-grid {
+        padding-top: 34px !important;
+      }
+
+      .hero-copy h1 {
+        font-size: clamp(2.15rem, 10vw, 3.4rem) !important;
+        line-height: 0.98 !important;
+      }
+
+      .hero-copy p {
+        font-size: 0.98rem !important;
+        line-height: 1.7 !important;
+      }
+
+      .hero-visual {
+        min-height: 340px !important;
+      }
+
+      .scene,
+      .service-scene,
+      .mockup-wrap {
+        transform: scale(.72);
+        transform-origin: center center;
+      }
+
+      .stat-grid,
+      .promise-list,
+      .field-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .contact-item {
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .shell, .section {
+        padding: 16px 14px 20px;
+        border-radius: 20px;
+      }
+
+      .hero-copy h1 {
+        font-size: clamp(1.95rem, 11vw, 2.8rem) !important;
+      }
+
+      .primary-btn, .secondary-btn, .ghost-btn,
+      .hero-actions a, .cta-actions a, .nav-cta,
+      form .primary-btn, form .secondary-btn {
+        width: 100% !important;
+      }
+
+      .hero-actions, .cta-actions {
+        width: 100%;
+      }
+
+      .scene,
+      .service-scene,
+      .mockup-wrap {
+        transform: scale(.56);
+      }
+
+      .hero-visual {
+        min-height: 260px !important;
+      }
+
+      .mini-badge, .trust-pill, .promise-item {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+      }
+
+      .contact-panel, form, .info-card, .service-card, .detail-card,
+      .proof-card, .case-card, .result-card, .feature-card, .process-card {
+        padding: 18px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .page-wrap {
+        padding: 0 10px 20px;
+      }
+
+      .shell, .section {
+        padding: 14px 12px 18px;
+      }
+
+      .hero-copy h1 {
+        font-size: clamp(1.8rem, 12vw, 2.4rem) !important;
+      }
+
+      .scene,
+      .service-scene,
+      .mockup-wrap {
+        transform: scale(.48);
+      }
+
+      .hero-visual {
+        min-height: 220px !important;
+      }
+    }
+
+</style>
 </head>
 <body>
   <div class="page-wrap">
@@ -1196,7 +1453,7 @@
         <div class="section-head">
           <div>
             <h2>Featured project direction</h2>
-            <p>Your homepage should show results, not only visuals. These case-study style blocks improve trust much more than generic portfolio tiles.</p>
+            <p>We focus on delivering measurable results, not just visuals. Each project is designed to improve real business performance and workflow efficiency.</p>
           </div>
           <a href="portfolio.html" class="ghost-btn">View portfolio</a>
         </div>
@@ -1241,7 +1498,7 @@
         <div class="section-head">
           <div>
             <h2>How we work</h2>
-            <p>A simple delivery process that keeps the project practical, visible, and aligned to your business need.</p>
+            <p>Our simple delivery process that keeps the project practical, visible, and aligned to your business need.</p>
           </div>
         </div>
 

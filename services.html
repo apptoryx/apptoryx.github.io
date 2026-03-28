@@ -83,7 +83,264 @@
       .hero-grid { padding-top:36px; } .hero-copy { text-align:center; } .hero-actions,.hero-points,.cta-actions { justify-content:center; } .service-scene { transform:scale(.86); transform-origin:center center; } .promise-list { grid-template-columns:1fr; }
     }
     @media (max-width:560px) { .hero-copy h1 { font-size:clamp(2.2rem,14vw,3.2rem); } .primary-btn,.secondary-btn,.ghost-btn,.cta-actions a { width:100%; } .service-scene { transform:scale(.62); height:300px; } }
-  </style>
+  
+    img, video, canvas, svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .shell, .section, .trust-panel, .stats-panel, .value-panel, .promise-panel,
+    .service-card, .detail-card, .proof-card, .case-card, .result-card,
+    .contact-panel, form, .info-card, .feature-card, .process-card, .metric-card {
+      min-width: 0;
+    }
+
+    .hero-copy, .hero-visual, .hero-grid, .feature-grid, .cases-grid, .process-grid,
+    .service-grid, .detail-grid, .contact-grid, .proof-strip, .result-grid,
+    .trust-strip, .value-strip, .stat-grid, .promise-list, .field-grid {
+      min-width: 0;
+    }
+
+    .hero-copy h1, .hero-copy p, .section-head h2, .section-head p,
+    .trust-panel h3, .stats-panel h3, .value-panel h3, .promise-panel h3,
+    .case-card h3, .result-card h3, .service-card h3, .detail-card h3,
+    .feature-card h3, .process-card h3, .cta-banner h2, .cta-banner p {
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .hero-actions a, .cta-actions a, .topbar a, .nav-links a, .mini-badge, .trust-pill, .promise-item {
+      white-space: normal;
+    }
+
+    @media (max-width: 1200px) {
+      .page-wrap {
+        max-width: 100%;
+        padding: 0 16px 28px;
+      }
+
+      .shell, .section {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .hero-grid {
+        gap: 18px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .page-wrap {
+        margin: 20px auto;
+      }
+
+      .shell, .section {
+        border-radius: 24px;
+        padding: 22px 20px 24px;
+      }
+
+      .hero-grid,
+      .trust-strip,
+      .feature-grid,
+      .cases-grid,
+      .process-grid,
+      .service-grid,
+      .detail-grid,
+      .contact-grid,
+      .proof-strip,
+      .result-grid,
+      .value-strip {
+        grid-template-columns: 1fr !important;
+      }
+
+      .hero-copy {
+        padding: 8px 0 0 !important;
+        text-align: center;
+        align-items: center;
+      }
+
+      .eyebrow {
+        align-self: center !important;
+      }
+
+      .hero-badges,
+      .hero-points,
+      .hero-actions,
+      .hero-note,
+      .cta-actions,
+      .trust-pills {
+        justify-content: center;
+      }
+
+      .hero-visual {
+        min-height: 420px !important;
+        padding: 0 !important;
+      }
+
+      .section-head {
+        align-items: flex-start;
+      }
+
+      .section-head .ghost-btn {
+        width: auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        overflow-x: hidden;
+      }
+
+      .page-wrap {
+        margin: 14px auto;
+        padding: 0 12px 24px;
+      }
+
+      .shell, .section {
+        border-radius: 22px;
+        padding: 18px 16px 22px;
+      }
+
+      .topbar {
+        gap: 14px;
+      }
+
+      .menu-btn {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .nav-links, .nav-cta {
+        display: none;
+      }
+
+      .topbar.open .nav-links {
+        display: flex !important;
+        position: absolute;
+        top: calc(100% + 12px);
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 14px;
+        align-items: flex-start;
+        background: rgba(255,255,255,.98);
+        padding: 18px;
+        border-radius: 18px;
+        box-shadow: 0 16px 34px rgba(24,36,60,.12);
+      }
+
+      .topbar.open .nav-cta {
+        display: inline-flex !important;
+        position: absolute;
+        top: calc(100% + 176px);
+        left: 18px;
+      }
+
+      .hero-grid {
+        padding-top: 34px !important;
+      }
+
+      .hero-copy h1 {
+        font-size: clamp(2.15rem, 10vw, 3.4rem) !important;
+        line-height: 0.98 !important;
+      }
+
+      .hero-copy p {
+        font-size: 0.98rem !important;
+        line-height: 1.7 !important;
+      }
+
+      .hero-visual {
+        min-height: 340px !important;
+      }
+
+      .scene,
+      .service-scene,
+      .mockup-wrap {
+        transform: scale(.72);
+        transform-origin: center center;
+      }
+
+      .stat-grid,
+      .promise-list,
+      .field-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .contact-item {
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .shell, .section {
+        padding: 16px 14px 20px;
+        border-radius: 20px;
+      }
+
+      .hero-copy h1 {
+        font-size: clamp(1.95rem, 11vw, 2.8rem) !important;
+      }
+
+      .primary-btn, .secondary-btn, .ghost-btn,
+      .hero-actions a, .cta-actions a, .nav-cta,
+      form .primary-btn, form .secondary-btn {
+        width: 100% !important;
+      }
+
+      .hero-actions, .cta-actions {
+        width: 100%;
+      }
+
+      .scene,
+      .service-scene,
+      .mockup-wrap {
+        transform: scale(.56);
+      }
+
+      .hero-visual {
+        min-height: 260px !important;
+      }
+
+      .mini-badge, .trust-pill, .promise-item {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+      }
+
+      .contact-panel, form, .info-card, .service-card, .detail-card,
+      .proof-card, .case-card, .result-card, .feature-card, .process-card {
+        padding: 18px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .page-wrap {
+        padding: 0 10px 20px;
+      }
+
+      .shell, .section {
+        padding: 14px 12px 18px;
+      }
+
+      .hero-copy h1 {
+        font-size: clamp(1.8rem, 12vw, 2.4rem) !important;
+      }
+
+      .scene,
+      .service-scene,
+      .mockup-wrap {
+        transform: scale(.48);
+      }
+
+      .hero-visual {
+        min-height: 220px !important;
+      }
+    }
+
+</style>
 </head>
 <body>
   <div class="page-wrap">
@@ -107,22 +364,22 @@
         </div>
       </div>
       <div class="value-strip">
-        <div class="value-panel"><h3>Why this page matters</h3><p>Most service pages only list features. This one is designed to help visitors quickly understand what you offer, where you add value, and how your solutions can actually improve work, reporting, and business visibility.</p></div>
+        <div class="value-panel"><h3>Why this page matters</h3><p>Our services are structured to clearly show where we add value and how each solution improves workflows, reporting, and business visibility. We focus on delivering practical, results-driven systems that support real operational needs and help your business run more efficiently</p></div>
         <div class="promise-panel"><h3>What clients want to feel</h3><p>Clear, useful, premium, and worth discussing further.</p><div class="promise-list"><div class="promise-item">Useful solutions</div><div class="promise-item">Premium presentation</div><div class="promise-item">Practical delivery</div><div class="promise-item">Real business value</div></div></div>
       </div>
       <section class="section">
-        <div class="section-head"><div><h2>Core services</h2><p>Structured in a stronger way so each service feels clear, valuable, and aligned to a real business need.</p></div></div>
+        <div class="section-head"><div><h2>Core services</h2><p>We structured in a stronger way so each service feels clear, valuable, and aligned to a real business need.</p></div></div>
         <div class="service-grid">
           <article class="service-card"><div class="icon-badge icon-blue"><i class="fas fa-laptop-code"></i></div><h3>Business Websites</h3><p>Modern landing pages and company websites designed to look premium and convert visitors better.</p><ul><li>Responsive company websites</li><li>Clean landing page design</li><li>SEO-ready structure</li></ul></article>
           <article class="service-card"><div class="icon-badge icon-pink"><i class="fas fa-layer-group"></i></div><h3>Custom Web Apps</h3><p>Systems, portals, and internal tools built around the actual workflow of your team or business.</p><ul><li>Node.js based app solutions</li><li>Role-based interfaces</li><li>Operations-focused workflows</li></ul></article>
           <article class="service-card"><div class="icon-badge icon-mint"><i class="fas fa-chart-line"></i></div><h3>Power BI Dashboards</h3><p>Interactive reporting experiences for management visibility, planning, and business performance tracking.</p><ul><li>KPI and progress reporting</li><li>Executive-friendly layouts</li><li>Clear dashboard storytelling</li></ul></article>
           <article class="service-card"><div class="icon-badge icon-gold"><i class="fas fa-share-alt"></i></div><h3>SharePoint Solutions</h3><p>Smart pages, document flows, team spaces, and process-driven tools for structured collaboration.</p><ul><li>Custom SharePoint pages</li><li>Internal document workflows</li><li>Team-facing portals</li></ul></article>
-          <article class="service-card"><div class="icon-badge icon-sky"><i class="fas fa-plug"></i></div><h3>API Integrations</h3><p>Connections between platforms, websites, and business systems to reduce repeated manual effort.</p><ul><li>Third-party integrations</li><li>Connected data movement</li><li>Workflow automation support</li></ul></article>
+          <article class="service-card"><div class="icon-badge icon-sky"><i class="fas fa-plug"></i></div><h3>API Integrations & Automation</h3><p>Connections between platforms, websites, and business systems to reduce repeated manual effort.</p><ul><li>Third-party integrations</li><li>Connected data movement</li><li>Workflow automation support</li></ul></article>
           <article class="service-card"><div class="icon-badge icon-blue"><i class="fas fa-wand-magic-sparkles"></i></div><h3>UI Refresh & Upgrades</h3><p>Transform old interfaces into cleaner, more modern experiences without making them heavy or confusing.</p><ul><li>Modern redesign work</li><li>Premium motion and polish</li><li>Mobile and UX improvements</li></ul></article>
         </div>
       </section>
       <section class="section">
-        <div class="section-head"><div><h2>How our services help your business</h2><p>These sections turn generic service descriptions into stronger value messaging that supports conversion.</p></div><a href="contact.html" class="ghost-btn">Request a custom scope</a></div>
+        <div class="section-head"><div><h2>How our services support your business</h2><p>Our solutions are designed to improve efficiency, enhance visibility, and streamline your daily operations—helping your business perform better with less manual effort.</p></div><a href="contact.html" class="ghost-btn">Request a custom scope</a></div>
         <div class="detail-grid">
           <div class="detail-card"><h3>For operations and internal process control</h3><p>Need a system that helps your team track, review, approve, or report more clearly? We build tools that bring order to daily work.</p><ul><li>Approval systems</li><li>Task and progress tracking</li><li>Internal reporting workflows</li></ul></div>
           <div class="detail-card"><h3>For reporting and management visibility</h3><p>Need faster decision-making and better insights? We build dashboards and data views that help management understand what is happening quickly.</p><ul><li>Visual performance reporting</li><li>KPI dashboards</li><li>Summary views for leadership</li></ul></div>
